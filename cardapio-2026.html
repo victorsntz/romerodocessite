@@ -112,6 +112,17 @@
                   letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
   .cat-topo .regra{max-width:620px;margin:8px auto 0;font-size:12.5px;font-weight:300;
                    font-style:italic;line-height:1.6;color:var(--ouro)}
+  .cat-resumo{max-width:640px;margin:26px auto 0;border-radius:4px;padding:16px 22px;
+              text-align:center;border:1px solid var(--borda);background:var(--creme)}
+  .cat-resumo b{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600}
+  .cat-resumo span{display:block;margin-top:5px;font-size:12.5px;font-weight:300;
+                   line-height:1.6;color:var(--texto)}
+  .cat-resumo.bom{border-color:#7a8f5a;background:#f2f5ec}
+  .cat-resumo.bom b{color:#4d6136}
+  .cat-resumo.aviso{border-color:var(--ouro);background:#faf6ee}
+  .cat-resumo.aviso b{color:#8a6a2c}
+  .cat-resumo.alerta{border-color:var(--rosa);background:#fbf0ef}
+  .cat-resumo.alerta b{color:var(--rosa)}
   .cat-topo p{color:var(--texto);font-size:14.5px;max-width:620px;margin:10px auto 0}
   .grade{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
   .grade > .doce{flex:0 0 240px}
@@ -479,7 +490,8 @@ function montarCatalogo(){
     const bloco = document.createElement('div');
     bloco.className = 'cat';
     bloco.innerHTML =
-      '<div class="cat-topo"><h3></h3><div class="nota"></div><div class="regra"></div><p></p></div><div class="grade"></div>';
+      '<div class="cat-topo"><h3></h3><div class="nota"></div><div class="regra"></div><p></p></div>' +
+      '<div class="grade"></div><div class="cat-resumo" data-cat="' + ci + '" hidden></div>';
     bloco.querySelector('h3').textContent = c.titulo;
     bloco.querySelector('.nota').textContent = c.precoNota;
     const regra = bloco.querySelector('.regra');
@@ -668,12 +680,62 @@ function totaisGerais(){
            pendente: gs.some(g => g.sel.some(x => x.it.pendente)) };
 }
 
+/* explica ao vivo, embaixo de cada categoria, o que está sendo cobrado —
+   sem isso a pessoa não entende por que o desconto do cento entrou ou não */
+function atualizarResumos(gs){
+  document.querySelectorAll('.cat-resumo').forEach(el => { el.hidden = true; el.className = 'cat-resumo'; });
+  gs.forEach(g => {
+    const ci = CATS.indexOf(g.cat);
+    const el = document.querySelector('.cat-resumo[data-cat="' + ci + '"]');
+    if (!el) return;
+    const sabores = g.sel.length;
+    let estado = 'neutro', texto = '';
+
+    if (g.cat.precoCento){
+      const falta = (100 - (g.qtd % 100)) % 100;
+      if (sabores > g.cat.maxSabores){
+        estado = 'alerta';
+        texto = sabores + ' sabores nesta linha. Acima de ' + g.cat.maxSabores +
+                ' no mesmo cento vale o valor unitário de cada doce.';
+        // a comparação só faz sentido se já houvesse cento fechado
+        if (g.qtd >= 100){
+          const seFosse = Math.floor(g.qtd / 100) * g.cat.precoCento + (g.qtd % 100) * (g.valor / g.qtd);
+          if (seFosse < g.valor - 0.005)
+            texto += ' Com até ' + g.cat.maxSabores + ' sabores, estas ' + g.qtd +
+                     ' unidades sairiam por ' + brl(seFosse) + '.';
+        } else {
+          texto += ' Com até ' + g.cat.maxSabores + ' sabores, o cento fechado sai por ' +
+                   brl(g.cat.precoCento) + '.';
+        }
+      } else if (g.qtd >= 100){
+        estado = 'bom';
+        const centos = Math.floor(g.qtd / 100);
+        texto = centos + ' cento' + (centos > 1 ? 's' : '') + ' pelo preço fechado de ' + brl(g.cat.precoCento) +
+                (falta ? '. As ' + (g.qtd % 100) + ' unidades avulsas vão pelo valor unitário.' : '.');
+      } else {
+        estado = 'aviso';
+        texto = 'Faltam ' + falta + ' unidades para fechar um cento e sair por ' + brl(g.cat.precoCento) +
+                '. Só valem as desta linha — sabores de outra categoria contam separado.';
+      }
+    } else {
+      texto = 'Valor unitário de cada doce.';
+    }
+
+    el.className = 'cat-resumo ' + estado;
+    el.innerHTML = '<b>' + sabores + (sabores > 1 ? ' sabores' : ' sabor') + ' · ' + g.qtd + ' un. · ' +
+                   brl(g.valor) + '</b><span></span>';
+    el.querySelector('span').textContent = texto;
+    el.hidden = false;
+  });
+}
+
 function atualizarTotal(){
   const t = totaisGerais();
   $('#totQtd').textContent = t.qtd;
   $('#totVal').textContent = brl(t.valor) + (t.pendente ? ' +' : '');
   $('#btOrcamento').disabled = t.qtd === 0;
   $('#btLimpar').disabled = t.qtd === 0;
+  atualizarResumos(t.grupos);
 }
 
 /* ---------------- quiz ---------------- */
