@@ -10,6 +10,7 @@
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sobre — Romero Doces</title>
+<link rel="preload" as="image" href="assets/logos/logo-header.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
@@ -59,7 +60,7 @@
 <div data-screen-label="Sobre" style="min-height: 100vh; display: flex; flex-direction: column;">
   <header style="background: rgba(244, 240, 230, 0.66); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(65, 21, 19, 0.12); position: sticky; top: 0; z-index: 50;">
     <div data-resp="hdr" style="max-width: 1180px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
-      <a href="Home.dc.html" style="display: flex; align-items: center;"><img src="assets/logos/logo-header.png" alt="Romero Doces" style="height: 46px; width: auto; display: block;"></a>
+      <a href="Home.dc.html" style="display: flex; align-items: center;"><img decoding="async" fetchpriority="high" src="assets/logos/logo-header.webp" alt="Romero Doces" style="height: 46px; width: auto; display: block;"></a>
       <nav data-resp="navDesk" style="display: flex; align-items: center; gap: 26px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;">
         <a href="Doces.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Doces</a>
         <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Degustação</a>
@@ -92,9 +93,9 @@
     <div data-resp="two" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 400px 1fr; gap: 72px; align-items: start;">
       <div data-resp="sticky" style="display: flex; flex-direction: column; gap: 20px; position: sticky; top: 110px;">
         <div style="width: 100%; aspect-ratio: 4 / 5;">
-          <image-slot id="foto-bia-sobre" shape="rounded" radius="4" src="assets/foto-bia.jpg" placeholder="Foto da Beatriz"></image-slot>
+          <image-slot id="foto-bia-sobre" shape="rounded" radius="4" src="assets/foto-bia.webp" placeholder="Foto da Beatriz"></image-slot>
         </div>
-        <img src="assets/assinaturas/assinatura11.png" alt="por Beatriz Romero" style="width: 100%; border-radius: 4px;">
+        <img decoding="async" fetchpriority="high" src="assets/assinaturas/assinatura11.webp" alt="por Beatriz Romero" style="width: 100%; border-radius: 4px;">
       </div>
       <div style="display: flex; flex-direction: column; gap: 24px;">
         <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 38px; line-height: 1.2; margin: 0;">Sou Beatriz, fundadora da Romero Doces</h2>
@@ -121,9 +122,9 @@
 
   <section style="padding: 0 32px 96px;">
     <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-      <img src="assets/criativos/aplicacao-5.png" alt="Fita de cetim por Beatriz Romero" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
-      <img src="assets/criativos/aplicacao-9.png" alt="Dólmã bordada Romero Doces" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
-      <img src="assets/criativos/aplicacao-13.png" alt="Sacola Romero Doces" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
+      <img decoding="async" src="assets/criativos/aplicacao-5.webp" alt="Fita de cetim por Beatriz Romero" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
+      <img decoding="async" src="assets/criativos/aplicacao-9.webp" alt="Dólmã bordada Romero Doces" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
+      <img decoding="async" src="assets/criativos/aplicacao-13.webp" alt="Sacola Romero Doces" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block;">
     </div>
   </section>
 
@@ -150,7 +151,7 @@
   <footer style="background: #411513; color: #c9c0ab; padding: 56px 32px 40px; margin-top: auto;">
     <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
       <div style="display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: center;">
-        <img src="assets/logos/logo22.png" alt="Romero Doces" style="width: 170px;">
+        <img decoding="async" src="assets/logos/logo22.webp" alt="Romero Doces" style="width: 170px;">
         <div style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 14px; font-weight: 300;">
           <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">WhatsApp · (34) 98408-8480</a>
           <a href="https://www.instagram.com/romerodoces_/" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">@romerodoces_</a>

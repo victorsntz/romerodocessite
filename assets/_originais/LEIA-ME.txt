@@ -1,0 +1,9 @@
+ARQUIVOS ORIGINAIS EM ALTA RESOLUÇÃO
+====================================
+
+Estas são as imagens originais, sem qualquer perda ou redimensionamento.
+Elas NÃO são usadas pelo site — ficam aqui apenas como arquivo/master.
+
+O site usa as versões .webp otimizadas em assets/, geradas a partir destas.
+Se precisar reexportar (ex.: para impressão, ou se o layout crescer),
+use os arquivos desta pasta como fonte.
