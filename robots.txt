@@ -1,4 +1,13 @@
+# Site em pré-lançamento, ainda sem domínio próprio.
+# O rastreamento fica LIBERADO de propósito: é o que permite ao Google
+# ler a tag <meta name="robots" content="noindex"> de cada página.
+# Bloquear aqui teria efeito contrário — o Google não leria o noindex e
+# a URL ainda poderia aparecer na busca.
+#
+# Quando o domínio definitivo entrar: remover o noindex das páginas e
+# reativar a linha Sitemap abaixo.
+
 User-agent: *
 Allow: /
 
-Sitemap: https://victorsntz.github.io/romerodocessite/sitemap.xml
+# Sitemap: https://.../sitemap.xml
