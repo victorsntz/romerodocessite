@@ -354,7 +354,7 @@ class Component extends DCLogic {
     const POOL_B = ['assets/fotos/doce1.webp', 'assets/fotos/doce4.webp', 'assets/fotos/doce2.webp', 'assets/fotos/doce5.webp', 'assets/fotos/doce3.webp', 'assets/fotos/doce6.webp'];
     const POOL_C = ['assets/fotos/bia50.webp', 'assets/fotos/bia20.webp', 'assets/fotos/bia120.webp', 'assets/fotos/retrato2.webp', 'assets/fotos/doce3.webp'];
     return {
-      retratos: ['assets/fotos/retrato1.webp', 'assets/fotos/retrato2.webp', 'assets/fotos/retrato3.webp'].map((src, i) => ({ src, op: i === (Math.floor(h / 4) % 3) ? 1 : 0 })),
+      retratos: ['assets/fotos/retrato2.webp', 'assets/fotos/retrato3.webp'].map((src, i, a) => ({ src, op: i === (Math.floor(h / 4) % a.length) ? 1 : 0 })),
       persCarimbados: fot(['assets/personalizados/carimbados.webp', 'assets/presentear/presente7.webp',
                            'assets/presentear/presente4.webp', 'assets/presentear/presente6.webp',
                            'assets/presentear/presente5.webp'], 0),
