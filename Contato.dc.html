@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contato — Romero Doces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #411513; }
+  a:hover { color: #bf5351; }
+  p, li, div, blockquote { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  body::after { content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.10; mix-blend-mode: overlay; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  @media (max-width: 900px) {
+    #dc-root section { padding-left: 20px !important; padding-right: 20px !important; }
+    #dc-root footer { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-resp="hdr"] { gap: 12px !important; padding: 10px 20px !important; }
+    [data-resp="hdr"] img { height: 36px !important; }
+    [data-resp="navDesk"] { display: none !important; }
+    [data-resp="navMobile"] { display: block !important; }
+    [data-resp="two"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-resp="hero"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-resp="heroPhotos"] { height: 400px !important; }
+    [data-resp="heroSmall"] { left: 0 !important; bottom: 20px !important; width: 46% !important; }
+    [data-resp="script"] { font-size: 46px !important; }
+    [data-resp="lead"] { font-size: 22px !important; }
+    [data-resp="marquee"] img { height: 190px !important; }
+    [data-resp="g5"] { grid-template-columns: repeat(3, 1fr) !important; }
+    [data-resp="sticky"] { position: static !important; }
+    [data-resp="hdr"] { justify-content: space-between; align-items: center; }
+    #dc-root section > div > div { justify-content: center; }
+    #dc-root [data-resp="hero"] > div { align-items: center !important; }
+    #dc-root section > div { text-align: center; }
+    #dc-root section div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root section ul { text-align: center; padding-left: 0 !important; list-style-position: inside; }
+    #dc-root section:not([data-resp="marquee"]) img { margin-left: auto !important; margin-right: auto !important; }
+    #dc-root [data-resp="two"], #dc-root [data-resp="hero"] { justify-items: center; }
+    #dc-root footer div { text-align: center; }
+    #dc-root footer div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root footer > div > div { justify-content: center !important; }
+    #dc-root h1 { font-size: 34px !important; }
+    #dc-root h2 { font-size: 27px !important; }
+  }
+</style>
+</helmet>
+<div data-screen-label="Contato" style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: rgba(244, 240, 230, 0.66); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(65, 21, 19, 0.12); position: sticky; top: 0; z-index: 50;">
+    <div data-resp="hdr" style="max-width: 1180px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="Home.dc.html" style="display: flex; align-items: center;"><img src="assets/logos/logo-header.png" alt="Romero Doces" style="height: 46px; width: auto; display: block;"></a>
+      <nav data-resp="navDesk" style="display: flex; align-items: center; gap: 26px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #bf5351; border-bottom: 1px solid #bf5351; padding-bottom: 2px;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; color: #f4f0e6; background: #411513; padding: 10px 22px; border-radius: 3px; letter-spacing: 0.14em;" style-hover="background: #bf5351; color: #f4f0e6;">WhatsApp</a>
+      </nav>
+      <details data-resp="navMobile" style="display: none; position: relative;">
+        <summary style="cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #411513; padding: 11px 16px; border: 1px solid rgba(65, 21, 19, 0.25); border-radius: 3px;">Menu</summary>
+        <div style="position: absolute; right: 0; top: calc(100% + 10px); min-width: 230px; background: rgba(244, 240, 230, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(65, 21, 19, 0.14); border-radius: 4px; box-shadow: 0 18px 40px rgba(46, 18, 18, 0.2); padding: 8px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Caixas Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; text-align: center; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 12px; border-radius: 3px; margin-top: 6px;" style-hover="background: #bf5351;">WhatsApp</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <section style="padding: 80px 32px 56px; text-align: center;">
+    <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; align-items: center;">
+      <div style="font-family: 'Pinyon Script', cursive; font-size: 32px; color: #bf5351;">vamos conversar</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.1; margin: 0;">Contato</h1>
+      <p style="font-size: 16px; font-weight: 300; line-height: 1.8; color: #52362e; margin: 0;">O atendimento é personalizado: conte sobre a sua celebração e montamos juntos a seleção perfeita de doces.</p>
+    </div>
+  </section>
+
+  <section style="padding: 0 32px 72px;">
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #efeadb; border-radius: 4px; padding: 44px 36px; display: flex; flex-direction: column; gap: 10px;" style-hover="background: #2e1212;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #cf7b76;">WhatsApp</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500;">(34) 98408-8480</div>
+        <div style="font-size: 14px; font-weight: 300; color: #c9c0ab;">Encomendas, orçamentos e agendamento de datas.</div>
+      </a>
+      <a href="https://www.instagram.com/romerodoces_/" target="_blank" rel="noopener" style="text-decoration: none; background: #efeadb; color: #2e1212; border: 1px solid #d8d2c0; border-radius: 4px; padding: 44px 36px; display: flex; flex-direction: column; gap: 10px;" style-hover="border-color: #bf5351;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #bf5351;">Instagram</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500;">@romerodoces_</div>
+        <div style="font-size: 14px; font-weight: 300; color: #52362e;">Acompanhe os bastidores e as novidades do ateliê.</div>
+      </a>
+    </div>
+  </section>
+
+  <section style="background: #efeadb; border-top: 1px solid #d8d2c0; border-bottom: 1px solid #d8d2c0; padding: 88px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 44px;">
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; margin: 0; text-align: center;">Como encomendar</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; color: #bf5351; line-height: 1;">01</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;">Chame no WhatsApp</div>
+          <div style="font-size: 14px; font-weight: 300; line-height: 1.7; color: #52362e;">Conte a data do evento, a quantidade desejada e os sabores que imagina. Você pode agendar com até 9 meses de antecedência.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; color: #bf5351; line-height: 1;">02</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;">Reserve sua data</div>
+          <div style="font-size: 14px; font-weight: 300; line-height: 1.7; color: #52362e;">Pedidos com pelo menos 15 dias úteis de antecedência. A confirmação acontece mediante pagamento de 50% do valor; o restante até a semana do evento.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; color: #bf5351; line-height: 1;">03</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;">Receba ou retire</div>
+          <div style="font-size: 14px; font-weight: 300; line-height: 1.7; color: #52362e;">Entregas mediante taxa de deslocamento conforme o endereço; retiradas no Bairro do Bosque, em Araguari/MG.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; color: #bf5351; line-height: 1;">04</div>
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600;">Celebre</div>
+          <div style="font-size: 14px; font-weight: 300; line-height: 1.7; color: #52362e;">Em pedidos com 400 doces ou mais, com a nossa entrega, a montagem da mesa é gratuita em Araguari/MG.</div>
+        </div>
+      </div>
+      <div style="font-size: 13px; font-weight: 300; line-height: 1.7; color: #7a5f52; border-top: 1px solid #d8d2c0; padding-top: 16px; max-width: 720px; margin: 0 auto; text-align: center;">Pagamento via Pix, link de pagamento, cartão de débito ou crédito (taxas por conta do cliente). Para grandes quantidades ou detalhes personalizados, entre em contato com maior antecedência para garantir a disponibilidade de datas.</div>
+    </div>
+  </section>
+
+  <section style="padding: 88px 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; background: #2e1212; color: #efeadb; border-radius: 4px; padding: 56px; text-align: center; display: flex; flex-direction: column; gap: 16px; align-items: center;">
+      <div style="font-family: 'Pinyon Script', cursive; font-size: 30px; color: #d9b36c;">ainda em dúvida nos sabores?</div>
+      <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; line-height: 1.2; margin: 0;">Encomende a Caixa Degustação com 20 doces</h2>
+      <p style="font-size: 15px; font-weight: 300; line-height: 1.8; color: #c9c0ab; margin: 0; max-width: 560px;">Uma data exclusiva por mês, com antecedência mínima de 7 dias. Acompanha caixa premium, sacola presenteável e ficha de degustação para escolher os sabores do seu grande dia.</p>
+      <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #bf5351; color: #f7f3e8; padding: 15px 34px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px;" style-hover="background: #cf6f6c;">Reservar degustação</a>
+    </div>
+  </section>
+
+  <footer style="background: #411513; color: #c9c0ab; padding: 56px 32px 40px; margin-top: auto;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: center;">
+        <img src="assets/logos/logo22.png" alt="Romero Doces" style="width: 170px;">
+        <div style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 14px; font-weight: 300;">
+          <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">WhatsApp · (34) 98408-8480</a>
+          <a href="https://www.instagram.com/romerodoces_/" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">@romerodoces_</a>
+          <span>Retiradas no Bairro do Bosque · Araguari/MG</span>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #5a2f28; padding-top: 22px; font-size: 12px; font-weight: 300; letter-spacing: 0.08em; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;"><span>© 2026 Romero Doces — Todos os direitos reservados.</span><span>Site feito por <a href="https://fortunatoestudio.com/" target="_blank" rel="noopener" style="color: #c9c0ab;" style-hover="color: #efeadb;">Fortunato Estúdio</a></span></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

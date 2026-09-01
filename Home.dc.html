@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romero Doces — Feito pra Celebrar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #411513; }
+  a:hover { color: #bf5351; }
+  p, li, div, blockquote { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  body::after { content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.10; mix-blend-mode: overlay; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+  @keyframes sealTilt { 0%, 100% { transform: rotateY(-16deg) rotateX(7deg); } 50% { transform: rotateY(16deg) rotateX(-5deg); } }
+  @keyframes sealShine { 0% { transform: translateX(-170%) rotate(20deg); } 55%, 100% { transform: translateX(240%) rotate(20deg); } }
+  @keyframes floatY { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes marqueeX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  @media (max-width: 900px) {
+    #dc-root section { padding-left: 20px !important; padding-right: 20px !important; }
+    #dc-root footer { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-resp="hdr"] { gap: 12px !important; padding: 10px 20px !important; }
+    [data-resp="hdr"] img { height: 36px !important; }
+    [data-resp="navDesk"] { display: none !important; }
+    [data-resp="navMobile"] { display: block !important; }
+    [data-resp="two"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-resp="hero"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-resp="heroPhotos"] { height: 420px !important; width: 100% !important; max-width: 460px; }
+    [data-resp="heroSmall"] { left: 0 !important; bottom: 20px !important; width: 46% !important; }
+    [data-resp="script"] { font-size: 46px !important; }
+    [data-resp="lead"] { font-size: 22px !important; }
+    [data-resp="marquee"] img { height: 190px !important; }
+    [data-resp="g5"] { grid-template-columns: repeat(3, 1fr) !important; }
+    [data-resp="sticky"] { position: static !important; }
+    [data-resp="hdr"] { justify-content: space-between; align-items: center; }
+    [data-resp="hero"] > div > div { justify-content: center !important; }
+    #dc-root section > div > div { justify-content: center; }
+    #dc-root [data-resp="hero"] > div { align-items: center !important; }
+    #dc-root section > div { text-align: center; }
+    #dc-root section div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root section ul { text-align: center; padding-left: 0 !important; list-style-position: inside; }
+    #dc-root section:not([data-resp="marquee"]) img { margin-left: auto !important; margin-right: auto !important; }
+    #dc-root [data-resp="two"], #dc-root [data-resp="hero"] { justify-items: center; }
+    #dc-root footer div { text-align: center; }
+    #dc-root footer div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root footer > div > div { justify-content: center !important; }
+    #dc-root h1 { font-size: 34px !important; }
+    #dc-root h2 { font-size: 27px !important; }
+  }
+</style>
+</helmet>
+<div data-screen-label="Home" style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: rgba(244, 240, 230, 0.66); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(65, 21, 19, 0.12); position: sticky; top: 0; z-index: 50;">
+    <div data-resp="hdr" style="max-width: 1180px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="Home.dc.html" style="display: flex; align-items: center;"><img src="assets/logos/logo-header.png" alt="Romero Doces" style="height: 46px; width: auto; display: block;"></a>
+      <nav data-resp="navDesk" style="display: flex; align-items: center; gap: 26px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; color: #f4f0e6; background: #411513; padding: 10px 22px; border-radius: 3px; letter-spacing: 0.14em;" style-hover="background: #bf5351; color: #f4f0e6;">WhatsApp</a>
+      </nav>
+      <details data-resp="navMobile" style="display: none; position: relative;">
+        <summary style="cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #411513; padding: 11px 16px; border: 1px solid rgba(65, 21, 19, 0.25); border-radius: 3px;">Menu</summary>
+        <div style="position: absolute; right: 0; top: calc(100% + 10px); min-width: 230px; background: rgba(244, 240, 230, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(65, 21, 19, 0.14); border-radius: 4px; box-shadow: 0 18px 40px rgba(46, 18, 18, 0.2); padding: 8px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Caixas Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; text-align: center; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 12px; border-radius: 3px; margin-top: 6px;" style-hover="background: #bf5351;">WhatsApp</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <section style="background: linear-gradient(180deg, #411513 0%, #3a1211 70%, #2e1212 100%); color: #efeadb; padding: 88px 32px 104px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.14; mix-blend-mode: overlay; pointer-events: none;"></div>
+    <div data-resp="hero" style="max-width: 1180px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr 0.86fr; gap: 72px; align-items: center;">
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0;">
+        <div data-resp="script" style="font-family: 'Pinyon Script', cursive; font-size: 72px; font-weight: 700; line-height: 1.05; color: #d9b36c; margin-top: 22px; animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s both;">Feito pra celebrar.</div>
+        <p data-resp="lead" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 34px; line-height: 1.4; margin: 22px 0 0; color: #d9d2be; max-width: 560px; animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s both;">Doces artesanais de autor para tornar momentos especiais inesquecíveis.</p>
+        <div style="display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;">
+          <a href="Doces.dc.html" style="text-decoration: none; background: #bf5351; color: #f7f3e8; padding: 15px 34px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.3s ease, transform 0.3s ease;" style-hover="background: #cf6f6c; transform: translateY(-2px);">Conhecer os doces</a>
+          <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; border: 1px solid #a5824a; color: #e9d9b4; padding: 15px 34px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;" style-hover="border-color: #d9b36c; color: #f2dc9c; transform: translateY(-2px);">Fazer encomenda</a>
+        </div>
+        <img src="assets/assinaturas/assinatura14.png" alt="por Beatriz Romero" style="width: min(260px, 70%); display: block; margin: 34px 0 0 -8px; animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.7s both;">
+      </div>
+      <div data-resp="heroPhotos" style="position: relative; height: 540px; animation: fadeUp 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;">
+        <div style="position: absolute; right: 0; top: 0; width: 78%; height: 100%; border-radius: 4px; overflow: hidden; z-index: 0; box-shadow: 0 40px 80px rgba(15, 4, 3, 0.55);">
+          <sc-for list="{{ heroBig }}" as="im" hint-placeholder-count="1">
+            <img src="{{ im.src }}" alt="Beatriz Romero e seus doces" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.7s ease; opacity: {{ im.op }};">
+          </sc-for>
+          <div style="position: absolute; inset: 0; background: linear-gradient(200deg, rgba(65, 21, 19, 0) 42%, rgba(65, 21, 19, 0.55) 78%, rgba(46, 18, 18, 0.85) 100%); pointer-events: none;"></div>
+          <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.16; mix-blend-mode: overlay; pointer-events: none;"></div>
+        </div>
+        <div data-resp="heroSmall" style="position: absolute; left: -6%; bottom: 76px; width: 52%; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; z-index: 3; border: 5px solid #411513; box-shadow: 0 28px 56px rgba(15, 4, 3, 0.6);">
+          <sc-for list="{{ heroSmall }}" as="im" hint-placeholder-count="1">
+            <img src="{{ im.src }}" alt="Doces finos Romero" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.7s ease; opacity: {{ im.op }};">
+          </sc-for>
+          <div style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(65, 21, 19, 0) 55%, rgba(46, 18, 18, 0.6) 100%); pointer-events: none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-resp="marquee" style="padding: 52px 0; overflow: hidden;">
+    <div style="display: flex; gap: 22px; width: max-content; animation: marqueeX 48s linear infinite;">
+      <img src="assets/fotos/doce1.jpg" alt="Finalização dos doces finos" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce4.jpg" alt="Bandeja de doces variados" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce2.jpg" alt="Bombom finalizado à mão" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce5.jpg" alt="Doces Romero na travessa" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce3.jpg" alt="Doce fino sendo montado" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce6.jpg" alt="Seleção de doces finos" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce1.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce4.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce2.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce5.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce3.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img src="assets/fotos/doce6.jpg" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+    </div>
+  </section>
+
+  <section style="padding: 72px 32px 40px;">
+    <div style="max-width: 720px; margin: 0 auto; text-align: center; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 40%;">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #bf5351; margin-bottom: 16px;">Seja bem-vindo</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 44px; line-height: 1.2; margin: 0;">Ingredientes selecionados, técnica e atenção a cada mínimo detalhe</h1>
+      <p style="font-size: 17px; font-weight: 300; line-height: 1.8; color: #52362e; margin: 24px auto 0; max-width: 600px;">Mais do que doces, cada criação busca proporcionar uma experiência memorável. Do brigadeiro gourmet ao bombom artístico, tudo é produzido artesanalmente, com ingredientes cuidadosamente selecionados e acabamento de autor.</p>
+    </div>
+  </section>
+
+  <section style="padding: 48px 32px 96px;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 36px; flex-wrap: wrap;">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 34px; margin: 0;">Nossos doces</h2>
+        <a href="Doces.dc.html" style="font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #bf5351;">Ver catálogo completo →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <a href="Doces.dc.html#brigadeiros" style="text-decoration: none; color: #2e1212; background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 32px; display: flex; flex-direction: column; gap: 18px; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 35%;" style-hover="border-color: #bf5351; transform: translateY(-6px); box-shadow: 0 18px 36px rgba(46, 18, 18, 0.12);">
+          <div style="position: relative; width: 150px; height: 150px; align-self: center;">
+            <sc-for list="{{ imgsBrigadeiros }}" as="im" hint-placeholder-count="1">
+              <img src="{{ im.src }}" alt="Brigadeiros gourmets" style="position: absolute; left: 0; top: 0; width: 150px; height: 150px; object-fit: contain; transition: opacity 1.1s ease; opacity: {{ im.op }}; filter: {{ im.f }};">
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; text-align: center;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600;">Brigadeiros Gourmets</div>
+            <div style="font-size: 14px; font-weight: 300; line-height: 1.6; color: #52362e;">Tradicionais, especiais e linha premium — feitos com cacau 100% e sabores autorais.</div>
+          </div>
+        </a>
+        <a href="Doces.dc.html#finos" style="text-decoration: none; color: #2e1212; background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 32px; display: flex; flex-direction: column; gap: 18px; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 35%;" style-hover="border-color: #bf5351; transform: translateY(-6px); box-shadow: 0 18px 36px rgba(46, 18, 18, 0.12);">
+          <div style="position: relative; width: 150px; height: 150px; align-self: center;">
+            <sc-for list="{{ imgsFinos }}" as="im" hint-placeholder-count="1">
+              <img src="{{ im.src }}" alt="Doces finos" style="position: absolute; left: 0; top: 0; width: 150px; height: 150px; object-fit: contain; transition: opacity 1.1s ease; opacity: {{ im.op }}; filter: {{ im.f }};">
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; text-align: center;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600;">Doces Finos</div>
+            <div style="font-size: 14px; font-weight: 300; line-height: 1.6; color: #52362e;">Bombons, cachepôs e trufas em chocolate nobre, com recheios e acabamentos de autor.</div>
+          </div>
+        </a>
+        <a href="Doces.dc.html#personalizados" style="text-decoration: none; color: #2e1212; background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 32px; display: flex; flex-direction: column; gap: 18px; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 35%;" style-hover="border-color: #bf5351; transform: translateY(-6px); box-shadow: 0 18px 36px rgba(46, 18, 18, 0.12);">
+          <div style="position: relative; width: 150px; height: 150px; align-self: center;">
+            <sc-for list="{{ imgsPersonalizados }}" as="im" hint-placeholder-count="1">
+              <img src="{{ im.src }}" alt="Personalizados" style="position: absolute; left: 0; top: 0; width: 150px; height: 150px; object-fit: contain; transition: opacity 1.1s ease; opacity: {{ im.op }}; filter: {{ im.f }};">
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; text-align: center;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600;">Personalizados &amp; Florais</div>
+            <div style="font-size: 14px; font-weight: 300; line-height: 1.6; color: #52362e;">Paleta de cores, monogramas e flores modeladas à mão para o seu evento.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #efeadb; border-top: 1px solid #d8d2c0; border-bottom: 1px solid #d8d2c0; padding: 96px 32px;">
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 380px 1fr; gap: 64px; align-items: center;">
+      <div style="position: relative; width: 100%; aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; border: 2px solid #411513; box-shadow: 0 20px 44px rgba(46, 18, 18, 0.18);">
+        <sc-for list="{{ retratos }}" as="im" hint-placeholder-count="1">
+          <img src="{{ im.src }}" alt="Beatriz Romero" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.8s ease; opacity: {{ im.op }};">
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 20px; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 40%;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #bf5351;">Quem faz</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 38px; line-height: 1.2; margin: 0;">Uma paixão que virou assinatura</h2>
+        <p style="font-size: 16px; font-weight: 300; line-height: 1.8; color: #52362e; margin: 0;">Sou Beatriz, fundadora da Romero Doces. Nutricionista por formação, comecei na confeitaria em 2024 produzindo brigadeiros para o aniversário da minha filha Luísa — e o que seria um evento em família se transformou em uma grande paixão, e depois em uma empresa construída com dedicação e constante aperfeiçoamento.</p>
+        <img src="assets/assinaturas/assinatura15.png" alt="por Beatriz Romero" style="width: 220px; display: block; margin-top: 4px;">
+        <div>
+          <a href="Sobre.dc.html" style="font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: #bf5351;">Conhecer a história →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #2e1212; color: #efeadb; padding: 96px 32px; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.12; mix-blend-mode: overlay; pointer-events: none;"></div>
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 440px 1fr; gap: 64px; align-items: center; position: relative; animation: fadeUp linear both; animation-timeline: view(); animation-range: entry 0% entry 40%;">
+      <img src="assets/criativos/aplicacao-1.png" alt="Bombons Romero em taça" style="width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: 4px; display: block;">
+      <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start;">
+        <div style="font-family: 'Pinyon Script', cursive; font-size: 34px; color: #d9b36c;">Caixa degustação</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; line-height: 1.2; margin: 0;">Prove nossos doces antes de escolher os sabores do seu grande dia</h2>
+        <p style="font-size: 16px; font-weight: 300; line-height: 1.8; color: #c9c0ab; margin: 0;">Caixas de 10 ou 20 doces, com seleções já definidas e cuidadosamente escolhidas. Acompanham caixa premium, sacola presenteável e ficha de degustação. Todo mês, uma data exclusiva para encomendas.</p>
+        <a href="Degustacao.dc.html" style="text-decoration: none; background: #bf5351; color: #f7f3e8; padding: 15px 34px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px;" style-hover="background: #cf6f6c;">Conhecer as caixas</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #411513; color: #c9c0ab; padding: 72px 32px 40px; margin-top: auto;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px;">
+      <div style="display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; align-items: center;">
+        <img src="assets/assinaturas/assinatura14.png" alt="por Beatriz Romero" style="width: 480px; max-width: 100%; display: block;">
+        <div style="display: flex; gap: 72px; flex-wrap: wrap; align-items: center;">
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #efeadb;">Navegue</div>
+            <a href="Doces.dc.html" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">Doces</a>
+            <a href="Degustacao.dc.html" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">Caixas Degustação</a>
+            <a href="Sobre.dc.html" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">Sobre</a>
+            <a href="Contato.dc.html" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">Contato</a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center;">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #efeadb;">Fale conosco</div>
+            <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">WhatsApp · (34) 98408-8480</a>
+            <a href="https://www.instagram.com/romerodoces_/" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none; font-size: 14px; font-weight: 300;" style-hover="color: #efeadb;">Instagram · @romerodoces_</a>
+            <div style="font-size: 14px; font-weight: 300;">Retiradas no Bairro do Bosque · Araguari/MG</div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #5a2f28; padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; font-weight: 300; letter-spacing: 0.08em;">
+        <div>© 2026 Romero Doces — Todos os direitos reservados.</div>
+        <div>Site feito por <a href="https://fortunatoestudio.com/" target="_blank" rel="noopener" style="color: #c9c0ab;" style-hover="color: #efeadb;">Fortunato Estúdio</a></div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tick: 0 };
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState(s => ({ tick: s.tick + 1 })), 3200);
+    this.heroTimer = setInterval(() => this.setState(s => ({ hero: (s.hero || 0) + 1 })), 1000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); clearInterval(this.heroTimer); }
+  renderVals() {
+    const SH = new Set(['bombom-artistico.png','bombom-de-limao.png','bombom-floresta-negra.png','bombom-personalizado.png','cachepo-morango.png','cachepo-romeu-e-julieta.png','caramelo-e-flor-de-sal.png','chocolate-branco.png','churros.png','coco-queimado.png','creme-brulle.png','ferrero.png','ninho-com-nutella.png','olho-de-sogra.png','oreo.png','pacoca.png','prestigio.png']);
+    const mk = (srcs, offset) => srcs.map((src, i) => ({
+      src, op: i === ((this.state.tick + offset) % srcs.length) ? 1 : 0,
+      f: SH.has(src.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none'
+    }));
+    const h = this.state.hero || 0;
+    const rot = (srcs, offset) => {
+      const step = Math.floor((h + offset) / 3);
+      return srcs.map((src, i) => ({ src, op: i === (step % srcs.length) ? 1 : 0 }));
+    };
+    const POOL_A = ['assets/fotos/bia40.jpg', 'assets/fotos/bia10.jpg', 'assets/fotos/bia60.jpg', 'assets/fotos/bia1.jpg', 'assets/fotos/bia30.jpg', 'assets/fotos/retrato3.jpg'];
+    const POOL_B = ['assets/fotos/doce1.jpg', 'assets/fotos/doce4.jpg', 'assets/fotos/doce2.jpg', 'assets/fotos/doce5.jpg', 'assets/fotos/doce3.jpg', 'assets/fotos/doce6.jpg'];
+    const POOL_C = ['assets/fotos/bia50.jpg', 'assets/fotos/bia20.jpg', 'assets/fotos/bia120.jpg', 'assets/fotos/retrato2.jpg', 'assets/fotos/doce3.jpg'];
+    return {
+      retratos: ['assets/fotos/retrato1.jpg', 'assets/fotos/retrato2.jpg', 'assets/fotos/retrato3.jpg'].map((src, i) => ({ src, op: i === (Math.floor(h / 4) % 3) ? 1 : 0 })),
+      heroBig: rot(POOL_A, 0),
+      heroMid: rot(POOL_B, 1),
+      heroSmall: rot(POOL_C, 2),
+      imgsBrigadeiros: mk([
+        'assets/doces/ninho-com-nutella.png', 'assets/doces/churros.png', 'assets/doces/pacoca.png',
+        'assets/doces/brigadeiro-de-morango.png', 'assets/doces/ferrero.png'
+      ], 0),
+      imgsFinos: mk([
+        'assets/doces/cachepo-de-cereja.png', 'assets/doces/morango-provencal.png', 'assets/doces/caramelo-imperial.png',
+        'assets/doces/pepita-de-ouro.png', 'assets/doces/bombom-de-nozes.png'
+      ], 2),
+      imgsPersonalizados: mk([
+        'assets/doces/bombom-artistico.png', 'assets/doces/floral.png', 'assets/doces/bombom-personalizado.png',
+        'assets/doces/rosa-de-ninho.png', 'assets/doces/bombom-de-maracuja.png'
+      ], 4)
+    };
+  }
+}
+</script>
+</body>
+</html>

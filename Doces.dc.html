@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doces — Romero Doces</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #411513; }
+  a:hover { color: #bf5351; }
+  p, li, div, blockquote { text-wrap: pretty; }
+  h1, h2, h3 { text-wrap: balance; }
+  body::after { content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none; background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22180%22 height=%22180%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%222%22 stitchTiles=%22stitch%22/%3E%3CfeColorMatrix type=%22saturate%22 values=%220%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); opacity: 0.10; mix-blend-mode: overlay; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  @media (max-width: 900px) {
+    #dc-root section { padding-left: 20px !important; padding-right: 20px !important; }
+    #dc-root footer { padding-left: 20px !important; padding-right: 20px !important; }
+    [data-resp="hdr"] { gap: 12px !important; padding: 10px 20px !important; }
+    [data-resp="hdr"] img { height: 36px !important; }
+    [data-resp="navDesk"] { display: none !important; }
+    [data-resp="navMobile"] { display: block !important; }
+    [data-resp="two"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    [data-resp="hero"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-resp="heroPhotos"] { height: 400px !important; }
+    [data-resp="heroSmall"] { left: 0 !important; bottom: 20px !important; width: 46% !important; }
+    [data-resp="script"] { font-size: 46px !important; }
+    [data-resp="lead"] { font-size: 22px !important; }
+    [data-resp="marquee"] img { height: 190px !important; }
+    [data-resp="g5"] { grid-template-columns: repeat(3, 1fr) !important; }
+    [data-resp="sticky"] { position: static !important; }
+    [data-resp="hdr"] { justify-content: space-between; align-items: center; }
+    #dc-root section > div > div { justify-content: center; }
+    #dc-root [data-resp="hero"] > div { align-items: center !important; }
+    #dc-root section > div { text-align: center; }
+    #dc-root section div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root section ul { text-align: center; padding-left: 0 !important; list-style-position: inside; }
+    #dc-root section:not([data-resp="marquee"]) img { margin-left: auto !important; margin-right: auto !important; }
+    #dc-root [data-resp="two"], #dc-root [data-resp="hero"] { justify-items: center; }
+    #dc-root footer div { text-align: center; }
+    #dc-root footer div[style*="flex-direction: column"] { align-items: center !important; }
+    #dc-root footer > div > div { justify-content: center !important; }
+    #dc-root h1 { font-size: 34px !important; }
+    #dc-root h2 { font-size: 27px !important; }
+  }
+</style>
+</helmet>
+<div data-screen-label="Doces" style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="background: rgba(244, 240, 230, 0.66); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-bottom: 1px solid rgba(65, 21, 19, 0.12); position: sticky; top: 0; z-index: 50;">
+    <div data-resp="hdr" style="max-width: 1180px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="Home.dc.html" style="display: flex; align-items: center;"><img src="assets/logos/logo-header.png" alt="Romero Doces" style="height: 46px; width: auto; display: block;"></a>
+      <nav data-resp="navDesk" style="display: flex; align-items: center; gap: 26px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #bf5351; border-bottom: 1px solid #bf5351; padding-bottom: 2px;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513;" style-hover="color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; color: #f4f0e6; background: #411513; padding: 10px 22px; border-radius: 3px; letter-spacing: 0.14em;" style-hover="background: #bf5351; color: #f4f0e6;">WhatsApp</a>
+      </nav>
+      <details data-resp="navMobile" style="display: none; position: relative;">
+        <summary style="cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #411513; padding: 11px 16px; border: 1px solid rgba(65, 21, 19, 0.25); border-radius: 3px;">Menu</summary>
+        <div style="position: absolute; right: 0; top: calc(100% + 10px); min-width: 230px; background: rgba(244, 240, 230, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(65, 21, 19, 0.14); border-radius: 4px; box-shadow: 0 18px 40px rgba(46, 18, 18, 0.2); padding: 8px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Caixas Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; text-align: center; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 12px; border-radius: 3px; margin-top: 6px;" style-hover="background: #bf5351;">WhatsApp</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <section style="padding: 80px 32px 48px; text-align: center;">
+    <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; align-items: center;">
+      <div style="font-family: 'Pinyon Script', cursive; font-size: 32px; color: #bf5351;">nosso cardápio</div>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.1; margin: 0;">Doces</h1>
+      <p style="font-size: 16px; font-weight: 300; line-height: 1.8; color: #52362e; margin: 0; max-width: 580px;">Uma seleção desenvolvida com ingredientes cuidadosamente selecionados, alto nível de técnica e atenção especial a cada mínimo detalhe.</p>
+      <nav style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;">
+        <a href="#brigadeiros" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Tradicionais</a>
+        <a href="#especiais" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Especiais</a>
+        <a href="#premium" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Linha Premium</a>
+        <a href="#finos" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Doces Finos</a>
+        <a href="#degustacao" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Degustação</a>
+        <a href="#florais" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Florais</a>
+        <a href="#personalizados" style="text-decoration: none; color: #411513; border: 1px solid #c9c0ab; padding: 9px 18px; border-radius: 20px;" style-hover="border-color: #bf5351; color: #bf5351;">Personalizados</a>
+      </nav>
+      <details data-resp="navMobile" style="display: none; position: relative;">
+        <summary style="cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #411513; padding: 11px 16px; border: 1px solid rgba(65, 21, 19, 0.25); border-radius: 3px;">Menu</summary>
+        <div style="position: absolute; right: 0; top: calc(100% + 10px); min-width: 230px; background: rgba(244, 240, 230, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(65, 21, 19, 0.14); border-radius: 4px; box-shadow: 0 18px 40px rgba(46, 18, 18, 0.2); padding: 8px; display: flex; flex-direction: column; gap: 2px; z-index: 60;">
+        <a href="Doces.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Doces</a>
+        <a href="Degustacao.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Caixas Degustação</a>
+        <a href="Sobre.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Sobre</a>
+        <a href="Contato.dc.html" style="text-decoration: none; color: #411513; font-size: 12px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 11px 12px; border-radius: 3px;" style-hover="background: rgba(65, 21, 19, 0.06); color: #bf5351;">Contato</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; text-align: center; font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 13px 12px; border-radius: 3px; margin-top: 6px;" style-hover="background: #bf5351;">WhatsApp</a>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="4">
+    <section id="{{ cat.id }}" style="padding: 56px 32px; scroll-margin-top: 90px;">
+      <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #c9c0ab; padding-top: 32px; align-items: center; text-align: center;">
+          <div style="display: flex; align-items: baseline; justify-content: center; gap: 24px; flex-wrap: wrap;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; margin: 0;">{{ cat.title }}</h2>
+            <sc-if value="{{ mostrarPrecos }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.1em; color: #bf5351;">{{ cat.priceNote }}</div>
+            </sc-if>
+          </div>
+          <p style="font-size: 15px; font-weight: 300; line-height: 1.7; color: #52362e; margin: 0; max-width: 640px; text-align: center;">{{ cat.intro }}</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 58px 22px; margin-top: 40px;">
+          <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="5">
+            <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 26px; display: flex; flex-direction: column; gap: 14px; text-align: center; width: 264px;">
+              <sc-if value="{{ item.img }}" hint-placeholder-val="{{ true }}">
+                <img src="{{ item.img }}" alt="{{ item.name }}" style="width: 176px; height: 176px; object-fit: contain; align-self: center; margin-top: -62px; filter: {{ item.filter }};">
+              </sc-if>
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600; line-height: 1.2;">{{ item.name }}</div>
+                <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">{{ item.desc }}</div>
+              </div>
+              <sc-if value="{{ mostrarPrecos }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.12em; color: #bf5351; margin-top: auto;">{{ item.price }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size: 13px; font-weight: 300; line-height: 1.7; color: #7a5f52; border-top: 1px solid #d8d2c0; padding-top: 16px; max-width: 680px; margin: 0 auto; text-align: center;">{{ cat.note }}</div>
+      </div>
+    </section>
+  </sc-for>
+
+  <section id="degustacao" style="padding: 48px 32px 24px; scroll-margin-top: 90px;">
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: grid; grid-template-columns: 440px 1fr; align-items: stretch;">
+      <img src="assets/criativos/aplicacao-1.png" alt="Bombons Romero em taça" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <div style="padding: 48px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start;">
+        <div style="font-family: 'Pinyon Script', cursive; font-size: 30px; color: #bf5351;">experiência completa</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; margin: 0;">Caixas Degustação — 10 ou 20 doces</h2>
+        <p style="font-size: 15px; font-weight: 300; line-height: 1.8; color: #52362e; margin: 0;">Seleções já definidas de 10 ou 20 doces, cuidadosamente escolhidas para uma experiência completa e sensorial — criadas para ajudar na escolha dos sabores do seu grande dia.</p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 14.5px; font-weight: 300; line-height: 2; color: #52362e;">
+          <li>Todo mês, uma data exclusiva para encomendas da caixa</li>
+          <li>Antecedência mínima de 7 dias para confirmação</li>
+          <li>Acompanha caixa premium, sacola presenteável e ficha de degustação</li>
+          <li>Em pedidos com 400 doces ou mais em até 15 dias após a degustação, o valor da caixa é abatido da encomenda</li>
+        </ul>
+        <a href="Degustacao.dc.html" style="text-decoration: none; background: #411513; color: #f4f0e6; padding: 14px 30px; border-radius: 3px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 8px;" style-hover="background: #bf5351;">Ver as caixas completas</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="florais" style="background: #411513; color: #efeadb; padding: 96px 32px; margin-top: 40px; scroll-margin-top: 90px;">
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="font-family: 'Pinyon Script', cursive; font-size: 32px; color: #d9b36c;">delicadeza modelada à mão</div>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; line-height: 1.15; margin: 0;">Doces Florais</h2>
+        <p style="font-size: 16px; font-weight: 300; line-height: 1.8; color: #d9d2be; margin: 0;">Detalhes artesanais que transformam cada doce em uma pequena obra de arte. Modeladas à mão, as flores trazem delicadeza e sofisticação, encantando não só pelo sabor, mas também pela beleza da apresentação.</p>
+        <ul style="margin: 0; padding-left: 18px; font-size: 15px; font-weight: 300; line-height: 2; color: #d9d2be;">
+          <li>Personalizadas conforme a paleta de cores da sua festa</li>
+          <li>Qualquer doce pode receber flores, exceto os de acabamento próprio</li>
+          <li>Pedido mínimo de 20 flores por modelo</li>
+          <li>Vendidas separadamente: você escolhe o doce e as flores desejadas</li>
+        </ul>
+      </div>
+      <img src="assets/doces/floral.png" alt="Doce floral" style="width: 100%;">
+    </div>
+  </section>
+
+  <section id="personalizados" style="padding: 96px 32px 56px; scroll-margin-top: 90px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 680px; margin: 0 auto; text-align: center; align-items: center;">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; margin: 0; text-align: center;">Brigadeiros Personalizados</h2>
+        <p style="font-size: 15px; font-weight: 300; line-height: 1.7; color: #52362e; margin: 0;">Feitos à base de leite Ninho e produzidos de acordo com a paleta de cores, elementos visuais e design individuais de cada evento. Quantidade mínima de 50 unidades, podendo mesclar entre os estilos escolhidos.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px;">
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Carimbados</div>
+          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Elementos do tema, carimbos personalizados com nomes, logomarcas exclusivas, iniciais e idade. Opção de pós metalizados.</div>
+        </div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Modelados</div>
+          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Utilização de moldes ou ejetores do tema escolhido para o seu evento.</div>
+        </div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Com apliques</div>
+          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Apliques em pasta americana ou pasta de leite Ninho, com modelos de acordo com o tema escolhido.</div>
+        </div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Pintura &amp; olhos comestíveis</div>
+          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Brigadeiros modelados com pinturas feitas manualmente e aplicação de olhos comestíveis em personagens e elementos.</div>
+        </div>
+      </div>
+      <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600;">Corporativos e lembrancinhas</div>
+          <div style="font-size: 14px; font-weight: 300; line-height: 1.6; color: #52362e;">Caixas personalizadas para empresas e lembrancinhas para eventos em geral.</div>
+        </div>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; padding: 13px 28px; border-radius: 3px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;" style-hover="background: #bf5351;">Pedir orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 24px 32px 96px;">
+    <div data-resp="two" style="max-width: 1180px; margin: 0 auto; background: #2e1212; color: #efeadb; border-radius: 4px; padding: 56px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-family: 'Pinyon Script', cursive; font-size: 28px; color: #d9b36c;">ficou com vontade?</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; line-height: 1.25;">Encomendas com 15 dias úteis de antecedência — agende sua data com até 9 meses.</div>
+      </div>
+      <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #bf5351; color: #f7f3e8; padding: 15px 34px; border-radius: 3px; font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; white-space: nowrap;" style-hover="background: #cf6f6c;">Encomendar agora</a>
+    </div>
+  </section>
+
+  <footer style="background: #411513; color: #c9c0ab; padding: 56px 32px 40px; margin-top: auto;">
+    <div style="max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      <div style="display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: center;">
+        <img src="assets/logos/logo22.png" alt="Romero Doces" style="width: 170px;">
+        <div style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 14px; font-weight: 300;">
+          <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">WhatsApp · (34) 98408-8480</a>
+          <a href="https://www.instagram.com/romerodoces_/" target="_blank" rel="noopener" style="color: #c9c0ab; text-decoration: none;" style-hover="color: #efeadb;">@romerodoces_</a>
+          <span>Retiradas no Bairro do Bosque · Araguari/MG</span>
+        </div>
+      </div>
+      <div style="border-top: 1px solid #5a2f28; padding-top: 22px; font-size: 12px; font-weight: 300; letter-spacing: 0.08em; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;"><span>© 2026 Romero Doces — Todos os direitos reservados.</span><span>Site feito por <a href="https://fortunatoestudio.com/" target="_blank" rel="noopener" style="color: #c9c0ab;" style-hover="color: #efeadb;">Fortunato Estúdio</a></span></div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mostrarPrecos&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Catálogo&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const mostrarPrecos = this.props.mostrarPrecos ?? false;
+    const cats = [
+      {
+        id: 'brigadeiros', title: 'Brigadeiros Gourmets — Tradicionais', priceNote: 'R$ 210,00 o cento',
+        intro: 'Os clássicos que não podem faltar em nenhuma celebração, em receitas autorais.',
+        note: 'Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.',
+        items: [
+          { name: 'Ninho', desc: 'Massa de leite Ninho confeitada no leite em pó.', price: 'R$ 2,30 un.', img: 'assets/doces/brigadeiro-de-ninho.png' },
+          { name: 'Beijinho', desc: 'Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.', price: 'R$ 2,30 un.', img: '' },
+          { name: 'Moranguinho', desc: 'Massa sabor morango, finalizada no açúcar colorido na cor rosa.', price: 'R$ 2,30 un.', img: 'assets/doces/brigadeiro-de-morango.png' },
+          { name: 'Dois amores', desc: 'Metade brigadeiro feito com cacau 100%, metade brigadeiro de ninho.', price: 'R$ 2,40 un.', img: 'assets/doces/dois-amores.png' },
+          { name: 'Paçoca', desc: 'Massa feita com paçoquinha, finalizada no amendoim triturado e torrado, com topper de meio amendoim.', price: 'R$ 2,30 un.', img: 'assets/doces/pacoca.png' }
+        ]
+      },
+      {
+        id: 'especiais', title: 'Brigadeiros Gourmets — Especiais', priceNote: 'R$ 230,00 o cento',
+        intro: 'Sabores com um passo a mais de técnica e acabamento.',
+        note: 'Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.',
+        items: [
+          { name: 'Churros', desc: 'Massa com leve adição de canela, finalizada no açúcar cristal e canela. Topper de doce de leite.', price: 'R$ 2,40 un.', img: 'assets/doces/churros.png' },
+          { name: 'Coco queimado', desc: 'Massa de coco levemente dourado, finalizada no coco queimado com topper de doce de leite.', price: 'R$ 2,50 un.', img: 'assets/doces/coco-queimado.png' },
+          { name: 'Brigadeiro Gourmet', desc: 'Massa feita com cacau 100%, finalizada com granulé de chocolate nobre ao leite.', price: 'R$ 2,50 un.', img: 'assets/doces/brigadeiro-ao-leite.png' },
+          { name: 'Ninho com Nutella', desc: 'Massa de leite Ninho finalizada no leite em pó, com topper de roseta de Nutella.', price: 'R$ 2,50 un.', img: 'assets/doces/ninho-com-nutella.png' },
+          { name: 'Tipo Ferrero', desc: 'Massa de cacau 100%, finalizada no xerém de amendoim com topper de Nutella.', price: 'R$ 2,50 un.', img: 'assets/doces/ferrero.png' }
+        ]
+      },
+      {
+        id: 'premium', title: 'Brigadeiros Gourmets — Linha Premium', priceNote: 'a partir de R$ 2,80 a unidade',
+        intro: 'Reduções de fruta, recheios e finalizações que elevam o brigadeiro a outro nível.',
+        note: 'Quantidade mínima de 25 unidades por sabor · Caixas de 25, 50 e 100 unidades · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração · Caramelo e Flor de Sal e Creme Brullé perdem a crocância com facilidade: recomenda-se consumo no dia da entrega.',
+        items: [
+          { name: 'Limão', desc: 'Massa saborizada com raspas de limão Taiti e redução da fruta, finalizada com roseta de creme de ninho e raspas de limão.', price: 'R$ 2,80 un.', img: 'assets/doces/bombom-de-limao.png' },
+          { name: 'Maracujá', desc: 'Massa saborizada com redução de maracujá, finalizada com roseta de creme de ninho e geleia artesanal de maracujá.', price: 'R$ 2,80 un.', img: 'assets/doces/brigadeiro-de-maracuja.png' },
+          { name: 'Prestígio', desc: 'Massa de cacau 100% recheada com brigadeiro de coco cremoso, finalizada com coco em flocos.', price: 'R$ 2,80 un.', img: 'assets/doces/prestigio.png' },
+          { name: 'Creme Brullé', desc: 'Massa de baunilha finalizada com açúcar caramelizado.', price: 'R$ 3,00 un.', img: 'assets/doces/creme-brulle.png' },
+          { name: 'Caramelo e flor de sal', desc: 'Massa de caramelo com leve toque salgado, finalizada com sucrilhos caramelizado crocante.', price: 'R$ 3,00 un.', img: 'assets/doces/caramelo-e-flor-de-sal.png' },
+          { name: 'Parmesão e goiabada', desc: 'Massa de parmesão fresco recheada com goiabada, finalizada com flor modelada de goiabada.', price: 'R$ 3,00 un.', img: 'assets/doces/gosto-mineiro.png' },
+          { name: 'Olho de sogra', desc: 'Massa cremosa de coco, finalizada com ameixa desidratada e flocos de coco levemente adoçados.', price: 'R$ 2,80 un.', img: 'assets/doces/olho-de-sogra.png' }
+        ]
+      },
+      {
+        id: 'finos', title: 'Doces Finos', priceNote: 'a partir de R$ 4,50 a unidade',
+        intro: 'Bombons, cachepôs e trufas em chocolate nobre, com recheios artesanais e acabamento de autor.',
+        note: 'Produção artesanal em chocolate nobre · Consulte quantidades mínimas e condições para personalização.',
+        items: [
+          { name: 'Jarrinha de Cereja', desc: 'Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.', price: 'R$ 4,70 un.', img: 'assets/doces/cachepo-de-cereja.png' },
+          { name: 'Cachepô de Morango', desc: 'Casquinha de chocolate blend, recheada com geleia de morango artesanal e creme de ninho, finalizada com morangos frescos.', price: 'R$ 4,50 un.', img: 'assets/doces/cachepo-morango.png' },
+          { name: 'Bombom Floresta Negra', desc: 'Brigadeiro meio amargo recheado com cereja, banhado no chocolate blend e finalizado com açúcar vermelho.', price: 'R$ 4,50 un.', img: 'assets/doces/bombom-floresta-negra.png' },
+          { name: 'Morango Provençal', desc: 'Casquinha de chocolate blend recheada com creme de chocolate meio amargo, finalizada com morangos frescos e bordinha de xerém de castanha de caju.', price: 'R$ 5,00 un.', img: 'assets/doces/morango-provencal.png' },
+          { name: 'Caramelo Imperial', desc: 'Casquinha de chocolate branco com caramelo salgado e pralinê de castanha de caju, finalizada com brigadeiro de doce de leite e amêndoas tostadas.', price: 'R$ 5,50 un.', img: 'assets/doces/caramelo-imperial.png' },
+          { name: 'Pepita de Ouro', desc: 'Chocolate blend com xerém de castanha de caju e massa folhada artesanal.', price: 'R$ 5,00 un.', img: 'assets/doces/pepita-de-ouro.png' },
+          { name: 'Trufa de Limão Siciliano', desc: 'Trufa de limão siciliano banhada no chocolate branco.', price: 'R$ 5,00 un.', img: 'assets/doces/trufa-siciliana.png' },
+          { name: 'Rosa de Ninho e Frutas Vermelhas', desc: 'Rosa de chocolate branco recheada com creme de ninho e geleia artesanal de frutas vermelhas.', price: 'R$ 4,50 un.', img: 'assets/doces/rosa-de-ninho.png' },
+          { name: 'Camafeu de Nozes', desc: 'Bombom de chocolate branco recheado com brigadeiro cremoso de nozes, finalizado com nozes inteiras douradas.', price: 'R$ 4,50 un.', img: 'assets/doces/bombom-de-nozes.png' },
+          { name: 'Rendado de Maracujá', desc: 'Chocolate blend recheado com gel cítrico e ganache de maracujá, finalizado com rendinha de papel arroz.', price: 'R$ 5,50 un.', img: 'assets/doces/bombom-de-maracuja.png' },
+          { name: 'Nutella Crunch', desc: 'Chocolate blend recheado com Nutella pura e massa folhada artesanal.', price: 'R$ 5,00 un.', img: 'assets/doces/nutella-crunch.png' },
+          { name: 'Coração Dourado', desc: 'Bombom maciço de chocolate blend e nuts: castanha de caju, castanha do Pará, nozes, pistache e amêndoas.', price: 'R$ 6,00 un.', img: 'assets/doces/coracao-dourado.png' },
+          { name: 'Cachepô de Creamcheese', desc: 'Chocolate branco recheado com creme de creamcheese, finalizado com rosa de goiabada.', price: 'R$ 5,00 un.', img: 'assets/doces/cachepo-romeu-e-julieta.png' },
+          { name: 'Bombom Personalizado', desc: 'Casquinha de chocolate branco recheada com ganache de chocolate branco. Personalize com monogramas, logomarcas e imagens.', price: 'R$ 5,50 un.', img: 'assets/doces/bombom-personalizado.png' },
+          { name: 'Bombom Artístico', desc: 'Bombom personalizado com manteiga de cacau, recheado com sabores em catálogo. Personalize com a paleta de cores do seu evento.', price: 'R$ 6,00 un.', img: 'assets/doces/bombom-artistico.png' }
+        ]
+      }
+    ];
+    const SH = new Set(['bombom-artistico.png','bombom-de-limao.png','bombom-floresta-negra.png','bombom-personalizado.png','cachepo-morango.png','cachepo-romeu-e-julieta.png','caramelo-e-flor-de-sal.png','chocolate-branco.png','churros.png','coco-queimado.png','creme-brulle.png','ferrero.png','ninho-com-nutella.png','olho-de-sogra.png','oreo.png','pacoca.png','prestigio.png']);
+    cats.forEach(c => c.items.forEach(it => {
+      it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
+    }));
+    return { mostrarPrecos, cats };
+  }
+}
+</script>
+</body>
+</html>
