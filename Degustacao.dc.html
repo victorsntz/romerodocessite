@@ -30,6 +30,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<script>
+// reforco: se algum navegador ignorar o pointer-events, ainda assim
+// bloqueia o menu de contexto e o arrastar sobre imagens
+document.addEventListener('contextmenu', function (e) {
+  if (e.target && (e.target.tagName === 'IMG' || e.target.tagName === 'IMAGE-SLOT')) e.preventDefault();
+}, true);
+document.addEventListener('dragstart', function (e) {
+  if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+}, true);
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -42,6 +52,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
 <style>
+  /* dificulta salvar/arrastar as fotos: sem menu de contexto na imagem,
+     sem arrastar pra area de trabalho, sem "salvar imagem" no toque longo.
+     pointer-events: none faz o clique atravessar pro elemento pai, entao
+     links e hover dos cards continuam funcionando normalmente. */
+  img, image-slot {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #411513; }
