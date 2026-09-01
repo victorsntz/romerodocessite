@@ -57,6 +57,12 @@ document.addEventListener('dragstart', function (e) {
      sem arrastar pra area de trabalho, sem "salvar imagem" no toque longo.
      pointer-events: none faz o clique atravessar pro elemento pai, entao
      links e hover dos cards continuam funcionando normalmente. */
+  /* §4 do playbook: impede imagem de estourar o container e garante que
+     atributos width/height nunca estiquem a foto. A faixa horizontal fica
+     de fora: as fotos dela tem altura fixa e rolam num trilho mais largo
+     que a tela, entao limitar a largura ali distorceria a proporcao. */
+  img { max-width: 100%; height: auto; }
+  [data-resp="marquee"] img { max-width: none; }
   img, image-slot {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;

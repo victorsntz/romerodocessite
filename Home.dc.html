@@ -59,6 +59,12 @@ document.addEventListener('dragstart', function (e) {
      sem arrastar pra area de trabalho, sem "salvar imagem" no toque longo.
      pointer-events: none faz o clique atravessar pro elemento pai, entao
      links e hover dos cards continuam funcionando normalmente. */
+  /* §4 do playbook: impede imagem de estourar o container e garante que
+     atributos width/height nunca estiquem a foto. A faixa horizontal fica
+     de fora: as fotos dela tem altura fixa e rolam num trilho mais largo
+     que a tela, entao limitar a largura ali distorceria a proporcao. */
+  img { max-width: 100%; height: auto; }
+  [data-resp="marquee"] img { max-width: none; }
   img, image-slot {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
@@ -175,12 +181,12 @@ document.addEventListener('dragstart', function (e) {
       <img decoding="async" src="assets/fotos/doce5.webp" alt="Doces Romero na travessa" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
       <img decoding="async" src="assets/fotos/doce3.webp" alt="Doce fino sendo montado" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
       <img decoding="async" src="assets/fotos/doce6.webp" alt="Seleção de doces finos" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce1.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce4.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce2.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce5.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce3.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
-      <img decoding="async" src="assets/fotos/doce6.webp" alt="" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce1.webp" alt="Bandeja de cristal com brigadeiros gourmet sendo finalizados" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce4.webp" alt="Brigadeiros gourmet prontos para a entrega" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce2.webp" alt="Bombom de chocolate nobre finalizado à mão" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce5.webp" alt="Detalhe do acabamento de um doce fino" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce3.webp" alt="Doces finos da Romero Doces em bandeja" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
+      <img decoding="async" src="assets/fotos/doce6.webp" alt="Mesa de doces artesanais da Romero Doces" style="height: 300px; width: auto; display: block; border: 1px solid #b8934f; border-radius: 3px; box-shadow: 0 14px 28px rgba(46, 18, 18, 0.18);">
     </div>
   </section>
 
