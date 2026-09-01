@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cardápio 2026 — Romero Doces</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#411513">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Pinyon+Script&display=swap">
+<style>
+  :root{
+    --vinho:#411513; --vinho-esc:#2e1212; --creme:#efeadb; --papel:#f4f0e6;
+    --rosa:#bf5351; --ouro:#b8934f; --ouro-cl:#d9b36c; --texto:#52362e; --borda:#d8d2c0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--papel);color:var(--vinho-esc);
+       font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased;
+       padding-bottom:96px}
+  img{max-width:100%;height:auto;-webkit-user-drag:none;user-select:none;pointer-events:none}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;margin:0;text-wrap:balance}
+  p{margin:0;line-height:1.7;font-weight:300}
+  .env{max-width:1120px;margin:0 auto;padding:0 24px}
+  .script{font-family:'Pinyon Script',cursive;color:var(--ouro-cl);font-size:26px}
+
+  /* ---------- topo ---------- */
+  header{background:var(--vinho);color:var(--creme);padding:44px 0 52px;text-align:center}
+  header img{width:74px;margin-bottom:14px}
+  header h1{font-size:42px;color:var(--creme);margin:6px 0 10px}
+  header p{color:#d9d2be;font-size:15px;max-width:560px;margin:0 auto}
+  .reservado{display:inline-block;margin-top:18px;font-size:11px;letter-spacing:.18em;
+             text-transform:uppercase;color:var(--ouro-cl);border:1px solid rgba(217,179,108,.45);
+             border-radius:3px;padding:7px 16px}
+
+  /* ---------- blocos ---------- */
+  section{padding:56px 0}
+  .tit{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;margin-bottom:34px}
+  .tit h2{font-size:33px}
+  .tit p{color:var(--texto);font-size:15px;max-width:620px}
+
+  .filete{display:flex;align-items:center;gap:22px;width:100%;max-width:760px;margin:0 auto}
+  .filete span:first-child,.filete span:last-child{flex:1;height:1px;background:var(--ouro);opacity:.5}
+  .filete b{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;
+            letter-spacing:.16em;text-transform:uppercase;color:var(--rosa);white-space:nowrap}
+
+  /* ---------- quiz ---------- */
+  .quiz{background:var(--creme);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+  .perg{margin-bottom:26px}
+  .perg > label{display:block;font-size:13px;font-weight:500;letter-spacing:.1em;
+                text-transform:uppercase;color:var(--rosa);margin-bottom:12px}
+  .ops{display:flex;flex-wrap:wrap;gap:9px}
+  .ops button{font-family:inherit;font-size:13.5px;font-weight:400;cursor:pointer;
+              background:transparent;border:1px solid var(--borda);color:var(--vinho-esc);
+              padding:10px 18px;border-radius:999px;transition:.2s}
+  .ops button:hover{border-color:var(--rosa);color:var(--rosa)}
+  .ops button[aria-pressed="true"]{background:var(--vinho);border-color:var(--vinho);color:var(--creme)}
+  .perg input[type=number]{font-family:inherit;font-size:16px;width:130px;padding:11px 14px;
+                           border:1px solid var(--borda);border-radius:3px;background:#fff;color:var(--vinho-esc)}
+  .sugestao{margin-top:8px;background:var(--vinho);color:var(--creme);border-radius:4px;padding:28px 30px}
+  .sugestao h3{font-size:26px;color:var(--creme);margin-bottom:6px}
+  .sugestao p{color:#d9d2be;font-size:14.5px}
+  .sug-num{font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1;color:var(--ouro-cl);margin:14px 0 4px}
+  .sug-linhas{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .sug-linhas div{background:rgba(239,234,219,.1);border:1px solid rgba(239,234,219,.2);
+                  border-radius:3px;padding:9px 14px;font-size:13px;color:var(--creme)}
+  .aviso{margin-top:14px;font-size:12.5px;color:#c9b9a8;font-style:italic}
+
+  /* ---------- catalogo ---------- */
+  .cat{margin-bottom:14px}
+  .cat-topo{text-align:center;margin-bottom:26px}
+  .cat-topo h3{font-size:29px}
+  .cat-topo .nota{display:inline-block;margin-top:8px;font-size:12.5px;font-weight:500;
+                  letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
+  .cat-topo p{color:var(--texto);font-size:14.5px;max-width:620px;margin:10px auto 0}
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+  .doce{background:var(--creme);border:1px solid var(--borda);border-radius:4px;
+        padding:18px;display:flex;flex-direction:column;gap:10px;transition:.25s}
+  .doce.ativo{border-color:var(--rosa);box-shadow:0 10px 26px rgba(46,18,18,.12)}
+  .doce figure{margin:0;display:flex;justify-content:center}
+  .doce figure img{width:122px;height:122px;object-fit:contain}
+  .doce .nome{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;line-height:1.25}
+  .doce .desc{font-size:12.5px;font-weight:300;line-height:1.55;color:var(--texto);flex:1}
+  .doce .val{font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--rosa)}
+  .qtd{display:flex;align-items:center;gap:8px;margin-top:2px}
+  .qtd button{width:34px;height:34px;flex:0 0 34px;font-size:17px;line-height:1;cursor:pointer;
+              background:#fff;border:1px solid var(--borda);border-radius:3px;color:var(--vinho);
+              font-family:inherit;transition:.15s}
+  .qtd button:hover:not(:disabled){border-color:var(--rosa);color:var(--rosa)}
+  .qtd button:disabled{opacity:.35;cursor:not-allowed}
+  .qtd input{flex:1;min-width:0;text-align:center;font-family:inherit;font-size:15px;
+             padding:8px 4px;border:1px solid var(--borda);border-radius:3px;background:#fff;color:var(--vinho-esc)}
+  .qtd .sub{font-size:12px;color:var(--texto);white-space:nowrap}
+
+  /* ---------- barra fixa ---------- */
+  .barra{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--vinho);
+         color:var(--creme);border-top:1px solid rgba(217,179,108,.3)}
+  .barra .env{display:flex;align-items:center;justify-content:space-between;gap:16px;
+              padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+  .barra .resumo{display:flex;flex-direction:column;gap:2px}
+  .barra .resumo small{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro-cl)}
+  .barra .resumo strong{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600}
+  .acoes{display:flex;gap:10px;flex-wrap:wrap}
+  .bt{font-family:inherit;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+      padding:13px 24px;border-radius:3px;cursor:pointer;border:1px solid transparent;text-decoration:none;
+      display:inline-block;transition:.2s}
+  .bt-p{background:var(--creme);color:var(--vinho)}
+  .bt-p:hover{background:var(--rosa);color:var(--papel)}
+  .bt-s{background:transparent;color:var(--creme);border-color:rgba(239,234,219,.45)}
+  .bt-s:hover{border-color:var(--creme)}
+  .bt:disabled{opacity:.4;cursor:not-allowed}
+
+  /* ---------- orcamento ---------- */
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(28,9,8,.75);
+         display:none;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto}
+  .modal.aberto{display:flex}
+  .orc{background:#fff;max-width:860px;width:100%;border-radius:4px;padding:44px}
+  .orc-topo{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+            border-bottom:2px solid var(--vinho);padding-bottom:20px;margin-bottom:8px}
+  .orc-topo img{width:58px}
+  .orc-topo h2{font-size:27px}
+  .orc-topo .meta{text-align:right;font-size:12.5px;color:var(--texto);line-height:1.7}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+     color:var(--rosa);padding:14px 8px;border-bottom:1px solid var(--borda)}
+  td{padding:11px 8px;border-bottom:1px solid #eee;vertical-align:middle}
+  td.n,th.n{text-align:right;white-space:nowrap}
+  td img{width:44px;height:44px;object-fit:contain;display:block}
+  tfoot td{border-bottom:none;border-top:2px solid var(--vinho);padding-top:16px;
+           font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600}
+  .orc-obs{margin-top:22px;font-size:12.5px;color:var(--texto);line-height:1.8}
+  .orc-acoes{display:flex;gap:10px;justify-content:flex-end;margin-top:26px;flex-wrap:wrap}
+  .orc-acoes .bt-p{background:var(--vinho);color:var(--creme)}
+  .orc-acoes .bt-s{border-color:var(--borda);color:var(--vinho)}
+
+  /* ---------- como funciona ---------- */
+  .info{background:var(--creme);border-top:1px solid var(--borda)}
+  .info-grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:30px}
+  .info-grade div{background:var(--papel);border:1px solid var(--borda);border-radius:4px;padding:24px}
+  .info-grade h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 8px}
+  .info-grade p{font-size:13.5px;color:var(--texto)}
+  footer{background:var(--vinho-esc);color:#c9b9a8;text-align:center;padding:36px 24px;font-size:12.5px}
+  footer a{color:var(--ouro-cl)}
+
+  @media (max-width:640px){
+    header h1{font-size:33px}
+    .tit h2{font-size:27px}
+    .orc{padding:24px}
+    .orc-topo{flex-direction:column}
+    .orc-topo .meta{text-align:left}
+    td img{width:34px;height:34px}
+    .barra .resumo strong{font-size:23px}
+  }
+
+  @media print{
+    body{background:#fff;padding:0}
+    header,.quiz,.catalogo,.info,footer,.barra,.orc-acoes{display:none !important}
+    .modal{position:static;display:block !important;background:#fff;padding:0;overflow:visible}
+    .orc{max-width:none;padding:0;border-radius:0}
+    td img{width:38px;height:38px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="env">
+    <img src="favicon-192.png" alt="Romero Doces">
+    <div class="script">cardápio completo</div>
+    <h1>Cardápio 2026</h1>
+    <p>Monte sua seleção, veja o valor na hora e leve o orçamento pronto para a conversa. Os valores abaixo são os vigentes para 2026.</p>
+    <div class="reservado">Link reservado a quem já entrou em contato</div>
+  </div>
+</header>
+
+<section class="quiz">
+  <div class="env">
+    <div class="tit">
+      <div class="filete"><span></span><b>Sugestão</b><span></span></div>
+      <p style="margin-top:18px">Cinco perguntas rápidas e a gente sugere quantos doces sua festa pede. É um ponto de partida — dá para ajustar tudo depois.</p>
+    </div>
+
+    <div class="perg">
+      <label>1. Que tipo de celebração?</label>
+      <div class="ops" data-campo="ocasiao">
+        <button data-v="casamento" data-por="8">Casamento</button>
+        <button data-v="aniversario" data-por="6">Aniversário</button>
+        <button data-v="infantil" data-por="6">Festa infantil</button>
+        <button data-v="cha" data-por="6">Chá</button>
+        <button data-v="corporativo" data-por="4">Corporativo</button>
+      </div>
+    </div>
+
+    <div class="perg">
+      <label>2. Quantos convidados?</label>
+      <input type="number" id="convidados" min="1" max="2000" step="1" placeholder="Ex.: 80">
+    </div>
+
+    <div class="perg">
+      <label>3. Vai ter refeição servida?</label>
+      <div class="ops" data-campo="refeicao">
+        <button data-v="sim" data-fator="0.75">Sim, jantar ou almoço completo</button>
+        <button data-v="nao" data-fator="1">Não, só a mesa de doces</button>
+      </div>
+    </div>
+
+    <div class="perg">
+      <label>4. Quanto tempo de festa?</label>
+      <div class="ops" data-campo="duracao">
+        <button data-v="curta" data-fator="0.85">Até 3 horas</button>
+        <button data-v="media" data-fator="1">De 4 a 5 horas</button>
+        <button data-v="longa" data-fator="1.15">Mais de 5 horas</button>
+      </div>
+    </div>
+
+    <div class="perg">
+      <label>5. Que estilo combina mais com a sua mesa?</label>
+      <div class="ops" data-campo="estilo">
+        <button data-v="classico">Clássicos, sem erro</button>
+        <button data-v="equilibrado">Um pouco de cada</button>
+        <button data-v="sofisticado">Mais doces finos</button>
+      </div>
+    </div>
+
+    <div class="sugestao" id="sugestao" hidden>
+      <h3>Nossa sugestão</h3>
+      <p>Para a sua festa, a conta costuma fechar em torno de:</p>
+      <div class="sug-num" id="sugNum">—</div>
+      <p id="sugBase"></p>
+      <div class="sug-linhas" id="sugLinhas"></div>
+      <p class="aviso" id="sugAviso"></p>
+    </div>
+  </div>
+</section>
+
+<section class="catalogo">
+  <div class="env">
+    <div class="tit">
+      <div class="filete"><span></span><b>Cardápio</b><span></span></div>
+      <p style="margin-top:18px">Escolha os sabores e as quantidades. O total aparece na barra embaixo conforme você monta.</p>
+    </div>
+    <div id="catalogo"></div>
+  </div>
+</section>
+
+<section class="info">
+  <div class="env">
+    <div class="tit"><div class="filete"><span></span><b>Como funciona</b><span></span></div></div>
+    <div class="info-grade">
+      <div>
+        <h4>Quantidade mínima</h4>
+        <p>25 unidades por sabor nos brigadeiros. As caixas fecham em 25, 50 e 100 unidades, e cabem até dois sabores no mesmo cento.</p>
+      </div>
+      <div>
+        <h4>Tamanho e validade</h4>
+        <p>Cada brigadeiro tem cerca de 16g. A validade média é de 3 dias em temperatura ambiente e 5 dias sob refrigeração.</p>
+      </div>
+      <div>
+        <h4>Doces finos</h4>
+        <p>Produção artesanal em chocolate nobre. As quantidades mínimas variam conforme o modelo — a gente combina na conversa.</p>
+      </div>
+      <div>
+        <h4>Personalizados</h4>
+        <p>Carimbados, modelados, com apliques ou pintados à mão, na paleta e no tema da sua festa. Mínimo de 50 unidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="env">
+    Romero Doces · Uberlândia, MG · <a href="https://wa.me/5534984088480" target="_blank" rel="noopener">(34) 98408-8480</a><br>
+    <span style="opacity:.7">Valores vigentes para 2026, sujeitos a alteração. Este cardápio é enviado individualmente e não fica publicado no site.</span>
+  </div>
+</footer>
+
+<div class="barra">
+  <div class="env">
+    <div class="resumo">
+      <small><span id="totQtd">0</span> doces selecionados</small>
+      <strong id="totVal">R$ 0,00</strong>
+    </div>
+    <div class="acoes">
+      <button class="bt bt-s" id="btLimpar" disabled>Limpar</button>
+      <button class="bt bt-p" id="btOrcamento" disabled>Ver orçamento</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="orc" id="orc">
+    <div class="orc-topo">
+      <div>
+        <img src="favicon-192.png" alt="Romero Doces">
+        <h2 style="margin-top:10px">Orçamento</h2>
+      </div>
+      <div class="meta">
+        <strong>Romero Doces</strong><br>
+        Uberlândia, MG<br>
+        (34) 98408-8480<br>
+        <span id="orcData"></span>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr><th colspan="2">Doce</th><th class="n">Qtd.</th><th class="n">Unitário</th><th class="n">Subtotal</th></tr>
+      </thead>
+      <tbody id="orcCorpo"></tbody>
+      <tfoot>
+        <tr><td colspan="4">Total</td><td class="n" id="orcTotal"></td></tr>
+      </tfoot>
+    </table>
+    <div class="orc-obs" id="orcObs"></div>
+    <div class="orc-acoes">
+      <button class="bt bt-s" id="btFechar">Voltar ao cardápio</button>
+      <button class="bt bt-s" id="btImprimir">Imprimir / salvar PDF</button>
+      <a class="bt bt-p" id="btZap" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = [{"id": "brigadeiros", "titulo": "Brigadeiros Gourmets — Tradicionais", "precoNota": "R$ 210,00 o cento", "intro": "Os clássicos que não podem faltar em nenhuma celebração, em receitas autorais.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Ninho", "desc": "Massa de leite Ninho confeitada no leite em pó.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-ninho.webp"}, {"nome": "Beijinho", "desc": "Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.", "preco": 2.3, "img": "assets/doces/beijinho.webp"}, {"nome": "Moranguinho", "desc": "Massa sabor morango, finalizada no açúcar colorido na cor rosa.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-morango.webp"}, {"nome": "Dois amores", "desc": "Metade brigadeiro feito com cacau 100%, metade brigadeiro de ninho.", "preco": 2.4, "img": "assets/doces/dois-amores.webp"}, {"nome": "Paçoca", "desc": "Massa feita com paçoquinha, finalizada no amendoim triturado e torrado, com topper de meio amendoim.", "preco": 2.3, "img": "assets/doces/pacoca.webp"}], "passo": 25}, {"id": "especiais", "titulo": "Brigadeiros Gourmets — Especiais", "precoNota": "R$ 230,00 o cento", "intro": "Sabores com um passo a mais de técnica e acabamento.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Churros", "desc": "Massa com leve adição de canela, finalizada no açúcar cristal e canela. Topper de doce de leite.", "preco": 2.4, "img": "assets/doces/churros.webp"}, {"nome": "Coco queimado", "desc": "Massa de coco levemente dourado, finalizada no coco queimado com topper de doce de leite.", "preco": 2.5, "img": "assets/doces/coco-queimado.webp"}, {"nome": "Brigadeiro Gourmet", "desc": "Massa feita com cacau 100%, finalizada com granulé de chocolate nobre ao leite.", "preco": 2.5, "img": "assets/doces/brigadeiro-ao-leite.webp"}, {"nome": "Ninho com Nutella", "desc": "Massa de leite Ninho finalizada no leite em pó, com topper de roseta de Nutella.", "preco": 2.5, "img": "assets/doces/ninho-com-nutella.webp"}, {"nome": "Tipo Ferrero", "desc": "Massa de cacau 100%, finalizada no xerém de amendoim com topper de Nutella.", "preco": 2.5, "img": "assets/doces/ferrero.webp"}], "passo": 25}, {"id": "premium", "titulo": "Brigadeiros Gourmets — Linha Premium", "precoNota": "a partir de R$ 2,80 a unidade", "intro": "Reduções de fruta, recheios e finalizações que elevam o brigadeiro a outro nível.", "nota": "Quantidade mínima de 25 unidades por sabor · Caixas de 25, 50 e 100 unidades · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração · Caramelo e Flor de Sal e Creme Brullé perdem a crocância com facilidade: recomenda-se consumo no dia da entrega.", "itens": [{"nome": "Limão", "desc": "Massa saborizada com raspas de limão Taiti e redução da fruta, finalizada com roseta de creme de ninho e raspas de limão.", "preco": 2.8, "img": "assets/doces/bombom-de-limao.webp"}, {"nome": "Maracujá", "desc": "Massa saborizada com redução de maracujá, finalizada com roseta de creme de ninho e geleia artesanal de maracujá.", "preco": 2.8, "img": "assets/doces/brigadeiro-de-maracuja.webp"}, {"nome": "Prestígio", "desc": "Massa de cacau 100% recheada com brigadeiro de coco cremoso, finalizada com coco em flocos.", "preco": 2.8, "img": "assets/doces/prestigio.webp"}, {"nome": "Creme Brullé", "desc": "Massa de baunilha finalizada com açúcar caramelizado.", "preco": 3.0, "img": "assets/doces/creme-brulle.webp"}, {"nome": "Caramelo e flor de sal", "desc": "Massa de caramelo com leve toque salgado, finalizada com sucrilhos caramelizado crocante.", "preco": 3.0, "img": "assets/doces/caramelo-e-flor-de-sal.webp"}, {"nome": "Parmesão e goiabada", "desc": "Massa de parmesão fresco recheada com goiabada, finalizada com flor modelada de goiabada.", "preco": 3.0, "img": "assets/doces/gosto-mineiro.webp"}, {"nome": "Olho de sogra", "desc": "Massa cremosa de coco, finalizada com ameixa desidratada e flocos de coco levemente adoçados.", "preco": 2.8, "img": "assets/doces/olho-de-sogra.webp"}], "passo": 25}, {"id": "finos", "titulo": "Doces Finos", "precoNota": "a partir de R$ 4,50 a unidade", "intro": "Bombons, cachepôs e trufas em chocolate nobre, com recheios artesanais e acabamento de autor.", "nota": "Produção artesanal em chocolate nobre · Consulte quantidades mínimas e condições para personalização.", "itens": [{"nome": "Jarrinha de Cereja", "desc": "Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.", "preco": 4.7, "img": "assets/doces/cachepo-de-cereja.webp"}, {"nome": "Cachepô de Morango", "desc": "Casquinha de chocolate blend, recheada com geleia de morango artesanal e creme de ninho, finalizada com morangos frescos.", "preco": 4.5, "img": "assets/doces/cachepo-morango.webp"}, {"nome": "Bombom Floresta Negra", "desc": "Brigadeiro meio amargo recheado com cereja, banhado no chocolate blend e finalizado com açúcar vermelho.", "preco": 4.5, "img": "assets/doces/bombom-floresta-negra.webp"}, {"nome": "Morango Provençal", "desc": "Casquinha de chocolate blend recheada com creme de chocolate meio amargo, finalizada com morangos frescos e bordinha de xerém de castanha de caju.", "preco": 5.0, "img": "assets/doces/morango-provencal.webp"}, {"nome": "Caramelo Imperial", "desc": "Casquinha de chocolate branco com caramelo salgado e pralinê de castanha de caju, finalizada com brigadeiro de doce de leite e amêndoas tostadas.", "preco": 5.5, "img": "assets/doces/caramelo-imperial.webp"}, {"nome": "Pepita de Ouro", "desc": "Chocolate blend com xerém de castanha de caju e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/pepita-de-ouro.webp"}, {"nome": "Trufa de Limão Siciliano", "desc": "Trufa de limão siciliano banhada no chocolate branco.", "preco": 5.0, "img": "assets/doces/trufa-siciliana.webp"}, {"nome": "Rosa de Ninho e Frutas Vermelhas", "desc": "Rosa de chocolate branco recheada com creme de ninho e geleia artesanal de frutas vermelhas.", "preco": 4.5, "img": "assets/doces/rosa-de-ninho.webp"}, {"nome": "Camafeu de Nozes", "desc": "Bombom de chocolate branco recheado com brigadeiro cremoso de nozes, finalizado com nozes inteiras douradas.", "preco": 4.5, "img": "assets/doces/bombom-de-nozes.webp"}, {"nome": "Maracujá Rendado", "desc": "Chocolate blend recheado com gel cítrico e ganache de maracujá, finalizado com rendinha de papel arroz.", "preco": 5.5, "img": "assets/doces/maracuja-rendado.webp"}, {"nome": "Nutella Crunch", "desc": "Chocolate blend recheado com Nutella pura e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/nutella-crunch.webp"}, {"nome": "Coração Dourado", "desc": "Bombom maciço de chocolate blend e nuts: castanha de caju, castanha do Pará, nozes, pistache e amêndoas.", "preco": 6.0, "img": "assets/doces/coracao-dourado.webp"}, {"nome": "Cachepô de Creamcheese", "desc": "Chocolate branco recheado com creme de creamcheese, finalizado com rosa de goiabada.", "preco": 5.0, "img": "assets/doces/cachepo-romeu-e-julieta.webp"}, {"nome": "Bombom Personalizado", "desc": "Casquinha de chocolate branco recheada com ganache de chocolate branco. Personalize com monogramas, logomarcas e imagens.", "preco": 5.5, "img": "assets/doces/bombom-personalizado.webp"}, {"nome": "Bombom Artístico", "desc": "Bombom personalizado com manteiga de cacau, recheado com sabores em catálogo. Personalize com a paleta de cores do seu evento.", "preco": 6.0, "img": "assets/doces/bombom-artistico.webp"}], "passo": 1}];
+const ZAP = '5534984088480';
+const carrinho = {};   // chave "catIdx-itemIdx" -> quantidade
+
+const brl = v => v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const $  = s => document.querySelector(s);
+
+/* ---------------- catálogo ---------------- */
+function montarCatalogo(){
+  const raiz = $('#catalogo');
+  CATS.forEach((c, ci) => {
+    const bloco = document.createElement('div');
+    bloco.className = 'cat';
+    bloco.innerHTML =
+      '<div class="cat-topo"><h3></h3><div class="nota"></div><p></p></div><div class="grade"></div>';
+    bloco.querySelector('h3').textContent = c.titulo;
+    bloco.querySelector('.nota').textContent = c.precoNota;
+    bloco.querySelector('p').textContent = c.intro;
+    const grade = bloco.querySelector('.grade');
+
+    c.itens.forEach((it, ii) => {
+      const chave = ci + '-' + ii;
+      const card = document.createElement('div');
+      card.className = 'doce';
+      card.innerHTML =
+        '<figure><img loading="lazy" decoding="async" alt=""></figure>' +
+        '<div class="nome"></div><div class="desc"></div><div class="val"></div>' +
+        '<div class="qtd">' +
+          '<button type="button" data-d="-1" aria-label="Diminuir">−</button>' +
+          '<input type="number" min="0" step="' + c.passo + '" value="0" inputmode="numeric">' +
+          '<button type="button" data-d="1" aria-label="Aumentar">+</button>' +
+        '</div><div class="sub"></div>';
+      const img = card.querySelector('img');
+      img.src = it.img; img.alt = it.nome;
+      card.querySelector('.nome').textContent = it.nome;
+      card.querySelector('.desc').textContent = it.desc;
+      card.querySelector('.val').textContent = brl(it.preco) + ' a unidade';
+
+      const input = card.querySelector('input');
+      const menos = card.querySelector('[data-d="-1"]');
+      const sub   = card.querySelector('.sub');
+
+      function aplicar(q){
+        q = Math.max(0, Math.round(q / c.passo) * c.passo);
+        if (q > 0) carrinho[chave] = q; else delete carrinho[chave];
+        input.value = q;
+        menos.disabled = q === 0;
+        card.classList.toggle('ativo', q > 0);
+        sub.textContent = q > 0 ? q + ' un. · ' + brl(q * it.preco) : '';
+        atualizarTotal();
+      }
+      card.querySelectorAll('.qtd button').forEach(b =>
+        b.addEventListener('click', () => aplicar((+input.value || 0) + (+b.dataset.d) * c.passo)));
+      input.addEventListener('change', () => aplicar(+input.value || 0));
+      aplicar(0);
+      grade.appendChild(card);
+    });
+    raiz.appendChild(bloco);
+  });
+}
+
+/* ---------------- total ---------------- */
+function itensDoCarrinho(){
+  return Object.entries(carrinho).map(([chave, q]) => {
+    const [ci, ii] = chave.split('-').map(Number);
+    const it = CATS[ci].itens[ii];
+    return { nome: it.nome, img: it.img, preco: it.preco, qtd: q, subtotal: q * it.preco,
+             categoria: CATS[ci].titulo };
+  }).sort((a, b) => b.subtotal - a.subtotal);
+}
+function atualizarTotal(){
+  const itens = itensDoCarrinho();
+  const qtd = itens.reduce((s, i) => s + i.qtd, 0);
+  const val = itens.reduce((s, i) => s + i.subtotal, 0);
+  $('#totQtd').textContent = qtd;
+  $('#totVal').textContent = brl(val);
+  $('#btOrcamento').disabled = qtd === 0;
+  $('#btLimpar').disabled = qtd === 0;
+}
+
+/* ---------------- quiz ---------------- */
+const resp = { ocasiao:null, porPessoa:null, refeicao:1, duracao:1, estilo:null };
+
+document.querySelectorAll('.ops').forEach(grupo => {
+  grupo.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    grupo.querySelectorAll('button').forEach(o => o.setAttribute('aria-pressed', o === b ? 'true' : 'false'));
+    const campo = grupo.dataset.campo;
+    if (campo === 'ocasiao'){ resp.ocasiao = b.textContent; resp.porPessoa = +b.dataset.por; }
+    else if (campo === 'estilo'){ resp.estilo = b.dataset.v; }
+    else { resp[campo] = +b.dataset.fator; }
+    calcular();
+  });
+});
+$('#convidados').addEventListener('input', calcular);
+
+function calcular(){
+  const n = +$('#convidados').value || 0;
+  if (!n || !resp.porPessoa || !resp.estilo) { $('#sugestao').hidden = true; return; }
+
+  const bruto = n * resp.porPessoa * resp.refeicao * resp.duracao;
+  const total = Math.max(25, Math.round(bruto / 25) * 25);   // fecha no múltiplo de 25
+
+  // divisao por estilo: [tradicionais+especiais, premium, finos]
+  const mix = { classico:[0.75,0.15,0.10], equilibrado:[0.55,0.25,0.20], sofisticado:[0.35,0.30,0.35] }[resp.estilo];
+  const fatias = [
+    { rot:'Brigadeiros tradicionais e especiais', q: Math.round(total*mix[0]/25)*25 },
+    { rot:'Linha premium',                        q: Math.round(total*mix[1]/25)*25 },
+    { rot:'Doces finos',                          q: Math.round(total*mix[2]) }
+  ].filter(f => f.q > 0);
+
+  $('#sugNum').textContent = total + ' doces';
+  $('#sugBase').textContent =
+    'Base: ' + resp.porPessoa + ' doces por pessoa para ' + n + ' convidados' +
+    (resp.refeicao !== 1 ? ', com refeição servida' : '') +
+    (resp.duracao !== 1 ? (resp.duracao > 1 ? ', festa longa' : ', festa curta') : '') + '.';
+  $('#sugLinhas').innerHTML = '';
+  fatias.forEach(f => {
+    const d = document.createElement('div');
+    d.textContent = f.rot + ': ~' + f.q + ' un.';
+    $('#sugLinhas').appendChild(d);
+  });
+  $('#sugAviso').textContent =
+    'É uma estimativa para começar a conversa — a Beatriz ajusta com você conforme o formato da mesa e os sabores escolhidos.';
+  $('#sugestao').hidden = false;
+}
+
+/* ---------------- orçamento ---------------- */
+function abrirOrcamento(){
+  const itens = itensDoCarrinho();
+  const total = itens.reduce((s, i) => s + i.subtotal, 0);
+  const qtd   = itens.reduce((s, i) => s + i.qtd, 0);
+
+  $('#orcData').textContent = new Date().toLocaleDateString('pt-BR',
+    { day:'2-digit', month:'long', year:'numeric' });
+
+  const corpo = $('#orcCorpo');
+  corpo.innerHTML = '';
+  itens.forEach(i => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td><img alt=""></td><td></td><td class="n"></td><td class="n"></td><td class="n"></td>';
+    const cels = tr.querySelectorAll('td');
+    cels[0].querySelector('img').src = i.img;
+    cels[0].querySelector('img').alt = i.nome;
+    cels[1].textContent = i.nome;
+    cels[2].textContent = i.qtd + ' un.';
+    cels[3].textContent = brl(i.preco);
+    cels[4].textContent = brl(i.subtotal);
+    corpo.appendChild(tr);
+  });
+  $('#orcTotal').textContent = brl(total);
+  $('#orcObs').innerHTML =
+    '<strong>' + qtd + ' doces no total.</strong><br>' +
+    'Mínimo de 25 unidades por sabor nos brigadeiros · Caixas de 25, 50 e 100 unidades · ' +
+    'Aproximadamente 16g por brigadeiro · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.<br>' +
+    'Este orçamento é uma simulação com os valores de 2026 e não reserva data de produção.';
+
+  const linhas = itens.map(i => '• ' + i.nome + ' — ' + i.qtd + ' un. × ' + brl(i.preco) + ' = ' + brl(i.subtotal));
+  const texto = 'Olá! Montei meu orçamento no cardápio:\n\n' + linhas.join('\n') +
+                '\n\nTotal: ' + qtd + ' doces — ' + brl(total);
+  $('#btZap').href = 'https://wa.me/' + ZAP + '?text=' + encodeURIComponent(texto);
+
+  $('#modal').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+function fecharOrcamento(){
+  $('#modal').classList.remove('aberto');
+  document.body.style.overflow = '';
+}
+
+$('#btOrcamento').addEventListener('click', abrirOrcamento);
+$('#btFechar').addEventListener('click', fecharOrcamento);
+$('#btImprimir').addEventListener('click', () => window.print());
+$('#modal').addEventListener('click', e => { if (e.target.id === 'modal') fecharOrcamento(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharOrcamento(); });
+$('#btLimpar').addEventListener('click', () => {
+  Object.keys(carrinho).forEach(k => delete carrinho[k]);
+  document.querySelectorAll('.doce').forEach(c => {
+    c.classList.remove('ativo');
+    c.querySelector('input').value = 0;
+    c.querySelector('[data-d="-1"]').disabled = true;
+    c.querySelector('.sub').textContent = '';
+  });
+  atualizarTotal();
+});
+
+montarCatalogo();
+atualizarTotal();
+</script>
+</body>
+</html>
