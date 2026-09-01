@@ -193,12 +193,30 @@
     .barra .resumo strong{font-size:23px}
   }
 
+  /* condicoes: aparecem no orcamento na tela e no PDF */
+  .orc-cond{margin-top:26px;border-top:1px solid var(--borda);padding-top:22px}
+  .orc-cond h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;
+               letter-spacing:.12em;text-transform:uppercase;color:var(--rosa);margin:0 0 14px}
+  .orc-cond-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+  .orc-cond-grade div{break-inside:avoid}
+  .orc-cond h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;margin:0 0 3px}
+  .orc-cond p{font-size:12px;color:var(--texto);line-height:1.6}
+  .orc-rodape{margin-top:22px;padding-top:14px;border-top:1px solid var(--borda);
+              font-size:11.5px;color:var(--texto);text-align:center;line-height:1.7}
+
+  @page{ size:A4 portrait; margin:14mm }
   @media print{
-    body{background:#fff;padding:0}
-    header,.quiz,.catalogo,.info,footer,.barra,.orc-acoes{display:none !important}
+    body{background:#fff;padding:0;color:#000}
+    nav.topo,header,.quiz,.catalogo,.info,footer,.barra,.orc-acoes{display:none !important}
     .modal{position:static;display:block !important;background:#fff;padding:0;overflow:visible}
-    .orc{max-width:none;padding:0;border-radius:0}
-    td img{width:38px;height:38px}
+    .orc{max-width:none;width:100%;padding:0;border-radius:0}
+    td img{width:34px;height:34px}
+    table{page-break-inside:auto}
+    tr{page-break-inside:avoid;page-break-after:auto}
+    thead{display:table-header-group}
+    tfoot{display:table-footer-group}
+    .orc-cond,.orc-pendente,.orc-rodape{page-break-inside:avoid}
+    .orc-cond-grade{grid-template-columns:1fr 1fr}
   }
 </style>
 </head>
@@ -364,6 +382,34 @@
       </tfoot>
     </table>
     <div class="orc-obs" id="orcObs"></div>
+
+    <div class="orc-cond">
+      <h3>Como funciona</h3>
+      <div class="orc-cond-grade">
+        <div>
+          <h4>Quantidade mínima</h4>
+          <p>25 unidades por sabor nos brigadeiros. As caixas fecham em 25, 50 e 100 unidades, e cabem até dois sabores no mesmo cento.</p>
+        </div>
+        <div>
+          <h4>Tamanho e validade</h4>
+          <p>Cada brigadeiro tem cerca de 16g. Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.</p>
+        </div>
+        <div>
+          <h4>Doces finos</h4>
+          <p>Produção artesanal em chocolate nobre. As quantidades mínimas variam conforme o modelo — a gente combina na conversa.</p>
+        </div>
+        <div>
+          <h4>Personalizados</h4>
+          <p>Carimbados, modelados, com apliques ou pintados à mão, na paleta e no tema da sua festa. Mínimo de 50 unidades.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="orc-rodape">
+      Romero Doces · Uberlândia, MG · (34) 98408-8480 · @romerodoces_<br>
+      Valores vigentes para 2026, sujeitos a alteração. Este documento é uma simulação e não reserva data de produção.
+    </div>
+
     <div class="orc-acoes">
       <button class="bt bt-s" id="btFechar">Voltar ao cardápio</button>
       <button class="bt bt-s" id="btImprimir">Imprimir / salvar PDF</button>
@@ -574,11 +620,10 @@ function abrirOrcamento(){
   });
   const pend = itens.filter(i => i.pendente);
   $('#orcTotal').textContent = brl(total) + (pend.length ? ' + a definir' : '');
+  // as condicoes gerais ficam no bloco "Como funciona" logo abaixo, que
+  // tambem vai pro PDF — aqui so o resumo e o que ficou pendente
   $('#orcObs').innerHTML =
-    '<strong>' + qtd + ' doces no total.</strong><br>' +
-    'Mínimo de 25 unidades por sabor nos brigadeiros · Caixas de 25, 50 e 100 unidades · ' +
-    'Aproximadamente 16g por brigadeiro · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.<br>' +
-    'Este orçamento é uma simulação com os valores de 2026 e não reserva data de produção.' +
+    '<strong>' + qtd + ' doces no total.</strong>' +
     (pend.length
       ? '<div class="orc-pendente"><strong>Ainda sem valor fechado:</strong> ' +
         pend.map(i => i.nome).join(', ') +
