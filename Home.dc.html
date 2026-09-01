@@ -355,11 +355,9 @@ class Component extends DCLogic {
     const POOL_C = ['assets/fotos/bia50.webp', 'assets/fotos/bia20.webp', 'assets/fotos/bia120.webp', 'assets/fotos/retrato2.webp', 'assets/fotos/doce3.webp'];
     return {
       retratos: ['assets/fotos/retrato2.webp', 'assets/fotos/retrato3.webp'].map((src, i, a) => ({ src, op: i === (Math.floor(h / 4) % a.length) ? 1 : 0 })),
-      persCarimbados: fot(['assets/personalizados/carimbados.webp', 'assets/presentear/presente7.webp',
-                           'assets/presentear/presente4.webp', 'assets/presentear/presente6.webp',
-                           'assets/presentear/presente5.webp'], 0),
-      persModelados: fot(['assets/personalizados/modelados.webp', 'assets/corporativos/corp3-lembrancinhas.webp'], 1),
-      persApliques: fot(['assets/personalizados/apliques.webp', 'assets/presentear/presente3.webp'], 2),
+      persCarimbados: fot(['assets/personalizados/carimbados.webp'], 0),
+      persModelados: fot(['assets/personalizados/modelados.webp'], 1),
+      persApliques: fot(['assets/personalizados/apliques.webp'], 2),
       persPintura: fot(['assets/personalizados/pintura.webp'], 3),
       heroBig: rot(POOL_A, 0),
       heroMid: rot(POOL_B, 1),
@@ -374,7 +372,7 @@ class Component extends DCLogic {
       ], 2),
       imgsPersonalizados: mk([
         'assets/doces/bombom-artistico.webp', 'assets/doces/floral.webp', 'assets/doces/bombom-personalizado.webp',
-        'assets/doces/rosa-de-ninho.webp', 'assets/doces/bombom-de-maracuja.webp'
+        'assets/doces/rosa-de-ninho.webp', 'assets/doces/maracuja-rendado.webp'
       ], 4)
     };
   }
