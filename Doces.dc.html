@@ -15,6 +15,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Jost:wght@300;400;500;600&amp;family=Pinyon+Script&amp;display=swap" rel="stylesheet">
 <style>
+  @keyframes deslizaFlorais {
+    0%,    20% { transform: translateX(0); }
+    25%,   45% { transform: translateX(-20%); }
+    50%,   70% { transform: translateX(-40%); }
+    75%,   95% { transform: translateX(-60%); }
+    100%       { transform: translateX(-80%); }
+  }
+  .trilho-florais { animation: deslizaFlorais 14s cubic-bezier(0.5, 0, 0.2, 1) infinite; }
+  @media (prefers-reduced-motion: reduce) { .trilho-florais { animation: none; } }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #411513; }
@@ -135,7 +144,18 @@
             </div>
           </sc-for>
         </div>
-        <div style="font-size: 13px; font-weight: 300; line-height: 1.7; color: #7a5f52; border-top: 1px solid #d8d2c0; padding-top: 16px; max-width: 680px; margin: 0 auto; text-align: center;">{{ cat.note }}</div>
+        <div style="max-width: 760px; margin: 44px auto 0; display: flex; flex-direction: column; align-items: center; gap: 18px;">
+          <div style="display: flex; align-items: center; gap: 22px; width: 100%;">
+            <span style="flex: 1; height: 1px; background: #b8934f; opacity: 0.5;"></span>
+            <span style="font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #bf5351; white-space: nowrap;">Informações</span>
+            <span style="flex: 1; height: 1px; background: #b8934f; opacity: 0.5;"></span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 7px; text-align: center;">
+            <sc-for list="{{ cat.notas }}" as="n" hint-placeholder-count="4">
+              <div style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 400; line-height: 1.5; color: #52362e;">{{ n.t }}</div>
+            </sc-for>
+          </div>
+        </div>
       </div>
     </section>
   </sc-for>
@@ -171,7 +191,13 @@
           <li>Vendidas separadamente: você escolhe o doce e as flores desejadas</li>
         </ul>
       </div>
-      <img decoding="async" src="assets/doces/floral.webp" alt="Doce floral" style="width: 100%;">
+      <div style="width: 100%; overflow: hidden; border-radius: 4px;">
+        <div class="trilho-florais" style="display: flex; width: 500%;">
+          <sc-for list="{{ florais }}" as="fl" hint-placeholder-count="4">
+            <img decoding="async" src="{{ fl.src }}" alt="Doce com flor" style="width: 100%; height: auto; flex: 0 0 20%; min-width: 0; display: block;">
+          </sc-for>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -318,7 +344,14 @@ class Component extends DCLogic {
       it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
     }));
     cats.forEach(c => c.items.forEach(it => { it.zoom = it.zoom || 1; }));
-    return { mostrarPrecos, cats };
+    const FLORAIS = ['assets/doces/floral.webp', 'assets/doces/gosto-mineiro.webp',
+                    'assets/doces/cachepo-romeu-e-julieta.webp', 'assets/doces/rosa-de-ninho.webp'];
+    const florais = [...FLORAIS, FLORAIS[0]].map((src, i) => ({ src, i }));
+    cats.forEach(c => {
+      c.notas = (c.note || '').split(' · ').map(s => s.trim()).filter(Boolean)
+        .map(s => ({ t: /[.!?]$/.test(s) ? s : s + '.' }));
+    });
+    return { mostrarPrecos, cats, florais };
   }
 }
 </script>
