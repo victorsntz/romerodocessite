@@ -41,7 +41,7 @@
   /* ---------- topo ---------- */
   header{background:var(--vinho);color:var(--creme);padding:56px 0 64px;text-align:center}
   header img{width:74px;margin-bottom:14px}
-  header h1{font-size:42px;color:var(--creme);margin:6px 0 14px}
+  header h1{font-size:60px;color:var(--creme);margin:8px 0 16px;line-height:1.05}
   header p{color:#d9d2be;font-size:15px;max-width:560px;margin:0 auto}
 
   /* ---------- blocos ---------- */
@@ -58,15 +58,21 @@
   /* ---------- quiz (recolhido por padrão) ---------- */
   .quiz{background:var(--creme);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda);
         padding:44px 0}
-  .quiz-abrir{display:block;width:100%;max-width:640px;margin:0 auto;cursor:pointer;
-              background:transparent;border:1px solid var(--borda);border-radius:4px;
-              padding:22px 26px;font-family:inherit;text-align:center;transition:.2s}
-  .quiz-abrir:hover{border-color:var(--rosa)}
-  .quiz-abrir b{display:block;font-family:'Cormorant Garamond',serif;font-size:25px;
-                font-weight:600;color:var(--vinho-esc)}
-  .quiz-abrir span{display:block;margin-top:6px;font-size:13.5px;font-weight:300;color:var(--texto)}
-  .quiz-abrir i{display:inline-block;margin-top:12px;font-style:normal;font-size:11px;
-                letter-spacing:.16em;text-transform:uppercase;color:var(--rosa)}
+  .quiz-abrir{display:block;width:100%;max-width:720px;margin:0 auto;cursor:pointer;
+              background:var(--vinho);border:2px solid var(--ouro);border-radius:4px;
+              padding:40px 34px;font-family:inherit;text-align:center;transition:.25s}
+  .quiz-abrir:hover{border-color:var(--ouro-cl);box-shadow:0 16px 36px rgba(46,18,18,.22)}
+  .quiz-abrir .script{font-family:'Pinyon Script',cursive;font-size:27px;color:var(--ouro-cl);
+                      display:block;margin-bottom:4px}
+  .quiz-abrir b{display:block;font-family:'Cormorant Garamond',serif;font-size:34px;
+                font-weight:500;color:var(--creme);line-height:1.2}
+  .quiz-abrir span{display:block;margin:12px auto 0;max-width:460px;font-size:14.5px;
+                   font-weight:300;color:#d9d2be;line-height:1.7}
+  .quiz-abrir i{display:inline-block;margin-top:22px;font-style:normal;font-size:11.5px;
+                font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+                color:var(--vinho);background:var(--creme);padding:14px 30px;border-radius:3px;
+                transition:.2s}
+  .quiz-abrir:hover i{background:var(--ouro-cl)}
   .quiz-corpo[hidden]{display:none}
   .quiz-corpo{margin-top:34px}
   .perg{margin-bottom:30px;text-align:center}
@@ -122,6 +128,32 @@
     letter-spacing:.14em;text-transform:uppercase;color:var(--ouro);margin-top:3px}
   .orc-pendente{margin-top:14px;padding:12px 16px;border-left:3px solid var(--ouro);
     background:#faf7f0;font-size:12.5px;color:var(--texto);line-height:1.7}
+  /* ---------- caixas degustação (desenho do site) ---------- */
+  .caixas{display:flex;flex-direction:column;gap:26px}
+  .caixa{background:var(--creme);border:2px solid var(--ouro);border-radius:4px;
+         padding:38px 42px;display:grid;grid-template-columns:minmax(230px,300px) 1fr;
+         gap:34px;align-items:center;transition:.25s}
+  .caixa.ativo{border-color:var(--rosa);box-shadow:0 12px 30px rgba(46,18,18,.12)}
+  .caixa-txt{display:flex;flex-direction:column;gap:12px;align-items:flex-start;text-align:left}
+  .caixa-txt .selo{font-size:11px;font-weight:600;letter-spacing:.24em;
+                   text-transform:uppercase;color:var(--rosa)}
+  .caixa-txt h4{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:500;
+                line-height:1.2;margin:0}
+  .caixa-txt p{font-size:14.5px;color:var(--texto)}
+  .caixa-val{font-size:13px;font-weight:500;letter-spacing:.08em;color:#8a7a6a}
+  .caixa-val em{display:block;font-style:normal;font-size:10.5px;font-weight:500;
+                letter-spacing:.14em;text-transform:uppercase;color:var(--ouro);margin-top:3px}
+  .caixa .qtd{width:auto;max-width:210px}
+  .caixa-doces{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 14px}
+  .caixa-doces figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+  .caixa-doces img{width:100%;max-width:74px;height:74px;object-fit:contain}
+  .caixa-doces figcaption{font-size:10.5px;line-height:1.35;color:var(--texto);text-align:center}
+  @media (max-width:860px){
+    .caixa{grid-template-columns:1fr;gap:26px;padding:28px 24px}
+    .caixa-txt{align-items:center;text-align:center}
+    .caixa-doces{grid-template-columns:repeat(3,minmax(0,1fr))}
+  }
+
   .qtd{display:flex;align-items:center;gap:8px;margin-top:2px;width:100%}
   .qtd button{width:34px;height:34px;flex:0 0 34px;font-size:17px;line-height:1;cursor:pointer;
               background:#fff;border:1px solid var(--borda);border-radius:3px;color:var(--vinho);
@@ -187,11 +219,11 @@
   .info-grade h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 8px}
   .info-grade p{font-size:13.5px;color:var(--texto)}
   @media (max-width:620px){ .info-grade{grid-template-columns:1fr} }
-  footer{background:var(--vinho-esc);color:#c9b9a8;text-align:center;padding:36px 24px;font-size:12.5px}
+  footer{background:var(--vinho-esc);color:#c9b9a8;text-align:center;padding:44px 24px;font-size:12.5px;line-height:2.1}
   footer a{color:var(--ouro-cl)}
 
   @media (max-width:640px){
-    header h1{font-size:33px}
+    header h1{font-size:40px}
     .tit h2{font-size:27px}
     .orc{padding:24px}
     .orc-topo{flex-direction:column}
@@ -205,7 +237,7 @@
   .orc-cond h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;
                letter-spacing:.12em;text-transform:uppercase;color:var(--rosa);margin:0 0 14px}
   .orc-cond-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
-  .orc-cond-grade div{break-inside:avoid}
+  .orc-cond-grade div{break-inside:avoid;text-align:center}
   .orc-cond h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;margin:0 0 3px}
   .orc-cond p{font-size:12px;color:var(--texto);line-height:1.6}
   .orc-rodape{margin-top:22px;padding-top:14px;border-top:1px solid var(--borda);
@@ -249,9 +281,10 @@
 <section class="quiz" id="sugestao">
   <div class="env">
     <button type="button" class="quiz-abrir" id="quizAbrir" aria-expanded="false" aria-controls="quizCorpo">
+      <span class="script">nós montamos pra você</span>
       <b>Não sabe quantos doces pedir?</b>
-      <span>Cinco perguntas rápidas e a gente sugere a quantidade — e já monta o orçamento pra você.</span>
-      <i id="quizRotulo">Abrir sugestão</i>
+      <span>Responda cinco perguntas rápidas e a gente calcula a quantidade que a sua festa pede — e já deixa o orçamento montado, pronto pra você ajustar.</span>
+      <i id="quizRotulo">Montar meu orçamento</i>
     </button>
 
     <div class="quiz-corpo" id="quizCorpo" hidden>
@@ -347,8 +380,10 @@
 
 <footer>
   <div class="env">
-    Romero Doces · Uberlândia, MG · <a href="https://wa.me/5534984088480" target="_blank" rel="noopener">(34) 98408-8480</a><br>
-    <span style="opacity:.7">Valores vigentes para 2026, sujeitos a alteração. Este cardápio é enviado individualmente e não fica publicado no site.</span>
+    Romero Doces · Uberlândia, MG<br>
+    <a href="https://wa.me/5534984088480" target="_blank" rel="noopener">(34) 98408-8480</a><br>
+    <span style="opacity:.7">Valores vigentes para 2026, sujeitos a alteração.</span><br>
+    <span style="opacity:.7">Este cardápio é enviado individualmente e não fica publicado no site.</span>
   </div>
 </footer>
 
@@ -413,8 +448,10 @@
     </div>
 
     <div class="orc-rodape">
-      Romero Doces · Uberlândia, MG · (34) 98408-8480 · @romerodoces_<br>
-      Valores vigentes para 2026, sujeitos a alteração. Este documento é uma simulação e não reserva data de produção.
+      Romero Doces · Uberlândia, MG<br>
+      (34) 98408-8480 · @romerodoces_<br>
+      Valores vigentes para 2026, sujeitos a alteração.<br>
+      Este documento é uma simulação e não reserva data de produção.
     </div>
 
     <div class="orc-acoes">
@@ -426,7 +463,7 @@
 </div>
 
 <script>
-const CATS = [{"id": "brigadeiros", "titulo": "Brigadeiros Gourmets — Tradicionais", "precoNota": "Escolha até dois sabores no mesmo cento — R$ 210,00 o cento", "intro": "Os clássicos que não podem faltar em nenhuma celebração, em receitas autorais.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Ninho", "desc": "Massa de leite Ninho confeitada no leite em pó.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-ninho.webp"}, {"nome": "Beijinho", "desc": "Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.", "preco": 2.3, "img": "assets/doces/beijinho.webp"}, {"nome": "Moranguinho", "desc": "Massa sabor morango, finalizada no açúcar colorido na cor rosa.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-morango.webp"}, {"nome": "Dois amores", "desc": "Metade brigadeiro feito com cacau 100%, metade brigadeiro de ninho.", "preco": 2.4, "img": "assets/doces/dois-amores.webp"}, {"nome": "Paçoca", "desc": "Massa feita com paçoquinha, finalizada no amendoim triturado e torrado, com topper de meio amendoim.", "preco": 2.3, "img": "assets/doces/pacoca.webp"}], "passo": 25, "precoCento": 210.0, "maxSabores": 2, "regraTexto": "Acima de 3 sabores no mesmo cento, será cobrado o valor unitário de cada brigadeiro."}, {"id": "especiais", "titulo": "Brigadeiros Gourmets — Especiais", "precoNota": "Escolha até dois sabores no mesmo cento — R$ 230,00 o cento", "intro": "Sabores com um passo a mais de técnica e acabamento.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Churros", "desc": "Massa com leve adição de canela, finalizada no açúcar cristal e canela. Topper de doce de leite.", "preco": 2.4, "img": "assets/doces/churros.webp"}, {"nome": "Coco queimado", "desc": "Massa de coco levemente dourado, finalizada no coco queimado com topper de doce de leite.", "preco": 2.5, "img": "assets/doces/coco-queimado.webp"}, {"nome": "Brigadeiro Gourmet", "desc": "Massa feita com cacau 100%, finalizada com granulé de chocolate nobre ao leite.", "preco": 2.5, "img": "assets/doces/brigadeiro-ao-leite.webp"}, {"nome": "Ninho com Nutella", "desc": "Massa de leite Ninho finalizada no leite em pó, com topper de roseta de Nutella.", "preco": 2.5, "img": "assets/doces/ninho-com-nutella.webp"}, {"nome": "Tipo Ferrero", "desc": "Massa de cacau 100%, finalizada no xerém de amendoim com topper de Nutella.", "preco": 2.5, "img": "assets/doces/ferrero.webp"}], "passo": 25, "precoCento": 230.0, "maxSabores": 2, "regraTexto": "Acima de 3 sabores no mesmo cento, será cobrado o valor unitário de cada brigadeiro."}, {"id": "premium", "titulo": "Brigadeiros Gourmets — Linha Premium", "precoNota": "a partir de R$ 2,80 a unidade", "intro": "Reduções de fruta, recheios e finalizações que elevam o brigadeiro a outro nível.", "nota": "Quantidade mínima de 25 unidades por sabor · Caixas de 25, 50 e 100 unidades · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração · Caramelo e Flor de Sal e Creme Brullé perdem a crocância com facilidade: recomenda-se consumo no dia da entrega.", "itens": [{"nome": "Limão", "desc": "Massa saborizada com raspas de limão Taiti e redução da fruta, finalizada com roseta de creme de ninho e raspas de limão.", "preco": 2.8, "img": "assets/doces/bombom-de-limao.webp"}, {"nome": "Maracujá", "desc": "Massa saborizada com redução de maracujá, finalizada com roseta de creme de ninho e geleia artesanal de maracujá.", "preco": 2.8, "img": "assets/doces/brigadeiro-de-maracuja.webp"}, {"nome": "Prestígio", "desc": "Massa de cacau 100% recheada com brigadeiro de coco cremoso, finalizada com coco em flocos.", "preco": 2.8, "img": "assets/doces/prestigio.webp"}, {"nome": "Creme Brullé", "desc": "Massa de baunilha finalizada com açúcar caramelizado.", "preco": 3.0, "img": "assets/doces/creme-brulle.webp"}, {"nome": "Caramelo e flor de sal", "desc": "Massa de caramelo com leve toque salgado, finalizada com sucrilhos caramelizado crocante.", "preco": 3.0, "img": "assets/doces/caramelo-e-flor-de-sal.webp"}, {"nome": "Parmesão e goiabada", "desc": "Massa de parmesão fresco recheada com goiabada, finalizada com flor modelada de goiabada.", "preco": 3.0, "img": "assets/doces/gosto-mineiro.webp"}, {"nome": "Olho de sogra", "desc": "Massa cremosa de coco, finalizada com ameixa desidratada e flocos de coco levemente adoçados.", "preco": 2.8, "img": "assets/doces/olho-de-sogra.webp"}], "passo": 25}, {"id": "finos", "titulo": "Doces Finos", "precoNota": "a partir de R$ 4,50 a unidade", "intro": "Bombons, cachepôs e trufas em chocolate nobre, com recheios artesanais e acabamento de autor.", "nota": "Produção artesanal em chocolate nobre · Consulte quantidades mínimas e condições para personalização.", "itens": [{"nome": "Jarrinha de Cereja", "desc": "Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.", "preco": 4.7, "img": "assets/doces/cachepo-de-cereja.webp"}, {"nome": "Cachepô de Morango", "desc": "Casquinha de chocolate blend, recheada com geleia de morango artesanal e creme de ninho, finalizada com morangos frescos.", "preco": 4.5, "img": "assets/doces/cachepo-morango.webp"}, {"nome": "Bombom Floresta Negra", "desc": "Brigadeiro meio amargo recheado com cereja, banhado no chocolate blend e finalizado com açúcar vermelho.", "preco": 4.5, "img": "assets/doces/bombom-floresta-negra.webp"}, {"nome": "Morango Provençal", "desc": "Casquinha de chocolate blend recheada com creme de chocolate meio amargo, finalizada com morangos frescos e bordinha de xerém de castanha de caju.", "preco": 5.0, "img": "assets/doces/morango-provencal.webp"}, {"nome": "Caramelo Imperial", "desc": "Casquinha de chocolate branco com caramelo salgado e pralinê de castanha de caju, finalizada com brigadeiro de doce de leite e amêndoas tostadas.", "preco": 5.5, "img": "assets/doces/caramelo-imperial.webp"}, {"nome": "Pepita de Ouro", "desc": "Chocolate blend com xerém de castanha de caju e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/pepita-de-ouro.webp"}, {"nome": "Trufa de Limão Siciliano", "desc": "Trufa de limão siciliano banhada no chocolate branco.", "preco": 5.0, "img": "assets/doces/trufa-siciliana.webp"}, {"nome": "Rosa de Ninho e Frutas Vermelhas", "desc": "Rosa de chocolate branco recheada com creme de ninho e geleia artesanal de frutas vermelhas.", "preco": 4.5, "img": "assets/doces/rosa-de-ninho.webp"}, {"nome": "Camafeu de Nozes", "desc": "Bombom de chocolate branco recheado com brigadeiro cremoso de nozes, finalizado com nozes inteiras douradas.", "preco": 4.5, "img": "assets/doces/bombom-de-nozes.webp"}, {"nome": "Maracujá Rendado", "desc": "Chocolate blend recheado com gel cítrico e ganache de maracujá, finalizado com rendinha de papel arroz.", "preco": 5.5, "img": "assets/doces/maracuja-rendado.webp"}, {"nome": "Nutella Crunch", "desc": "Chocolate blend recheado com Nutella pura e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/nutella-crunch.webp"}, {"nome": "Coração Dourado", "desc": "Bombom maciço de chocolate blend e nuts: castanha de caju, castanha do Pará, nozes, pistache e amêndoas.", "preco": 6.0, "img": "assets/doces/coracao-dourado.webp"}, {"nome": "Cachepô de Creamcheese", "desc": "Chocolate branco recheado com creme de creamcheese, finalizado com rosa de goiabada.", "preco": 5.0, "img": "assets/doces/cachepo-romeu-e-julieta.webp"}, {"nome": "Bombom Personalizado", "desc": "Casquinha de chocolate branco recheada com ganache de chocolate branco. Personalize com monogramas, logomarcas e imagens.", "preco": 5.5, "img": "assets/doces/bombom-personalizado.webp"}, {"nome": "Bombom Artístico", "desc": "Bombom personalizado com manteiga de cacau, recheado com sabores em catálogo. Personalize com a paleta de cores do seu evento.", "preco": 6.0, "img": "assets/doces/bombom-artistico.webp"}], "passo": 1}, {"id": "degustacao", "titulo": "Caixas Degustação", "precoNota": "valor a definir", "passo": 1, "intro": "Prove os doces antes de fechar o cardápio do seu evento.", "nota": "", "unidade": "caixa", "itens": [{"nome": "Caixa Degustação — 10 doces", "desc": "Uma amostra enxuta dos clássicos e doces finos: Brigadeiro ao leite, Caramelo e flor de sal, Creme brullé, Morango provençal, Cachepô de cereja, Romeu e Julieta, Trufa de limão siciliano, Pepita de ouro, Rendado de maracujá e Bombom com logomarca.", "preco": 0.0, "img": "assets/presentear/presente7.webp", "pendente": true}, {"nome": "Caixa Degustação — 20 doces", "desc": "A experiência completa da casa: Brigadeiro ao leite, Coco queimado, Maracujá, Caramelo e flor de sal, Creme brullé, Parmesão e goiabada, Dois amores florais, Morango provençal, Caramelo imperial, Cachepô de cereja, Coração dourado, Bombom floresta negra, Pepita de ouro, Trufa de limão siciliano, Camafeu de nozes, Rosa de ninho e frutas vermelhas, Rendado de maracujá, Cachepô de Creamcheese, Personalizado e Bombom artístico.", "preco": 0.0, "img": "assets/presentear/presente5.webp", "pendente": true}]}, {"id": "personalizados", "titulo": "Brigadeiros Personalizados", "precoNota": "mínimo de 50 unidades", "passo": 50, "intro": "Feitos à base de leite Ninho, na paleta de cores e nos elementos visuais do seu evento.", "nota": "", "unidade": "unidade", "itens": [{"nome": "Carimbados", "preco": 2.5, "img": "assets/personalizados/carimbados.webp", "desc": "Carimbos com nomes, logomarcas, iniciais e idade. Opção de pós metalizados.", "tabela": [{"q": 100, "v": 250.0}, {"q": 50, "v": 130.0}]}, {"nome": "Modelados", "preco": 3.5, "img": "assets/personalizados/modelados.webp", "desc": "Moldes e ejetores no tema escolhido para o seu evento.", "tabela": [{"q": 100, "v": 350.0}, {"q": 50, "v": 180.0}]}, {"nome": "Com apliques", "preco": 3.5, "img": "assets/personalizados/apliques.webp", "desc": "Apliques em pasta americana ou pasta de leite Ninho, no tema da festa. O valor é o brigadeiro mais o aplique, então varia conforme o modelo.", "tabela": [{"q": 100, "v": 350.0}, {"q": 50, "v": 180.0}], "apartir": true}, {"nome": "Detalhes em pintura", "preco": 4.0, "img": "assets/personalizados/pintura.webp", "desc": "Pinturas feitas à mão e olhos comestíveis em personagens e elementos. Valor para pinturas complexas.", "tabela": [{"q": 100, "v": 400.0}, {"q": 50, "v": 200.0}]}]}];
+const CATS = [{"id": "brigadeiros", "titulo": "Brigadeiros Gourmets — Tradicionais", "precoNota": "Escolha até dois sabores no mesmo cento — R$ 210,00 o cento", "intro": "Os clássicos que não podem faltar em nenhuma celebração, em receitas autorais.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Ninho", "desc": "Massa de leite Ninho confeitada no leite em pó.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-ninho.webp"}, {"nome": "Beijinho", "desc": "Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.", "preco": 2.3, "img": "assets/doces/beijinho.webp"}, {"nome": "Moranguinho", "desc": "Massa sabor morango, finalizada no açúcar colorido na cor rosa.", "preco": 2.3, "img": "assets/doces/brigadeiro-de-morango.webp"}, {"nome": "Dois amores", "desc": "Metade brigadeiro feito com cacau 100%, metade brigadeiro de ninho.", "preco": 2.4, "img": "assets/doces/dois-amores.webp"}, {"nome": "Paçoca", "desc": "Massa feita com paçoquinha, finalizada no amendoim triturado e torrado, com topper de meio amendoim.", "preco": 2.3, "img": "assets/doces/pacoca.webp"}], "passo": 25, "precoCento": 210.0, "maxSabores": 2, "regraTexto": "Acima de 3 sabores no mesmo cento, será cobrado o valor unitário de cada brigadeiro."}, {"id": "especiais", "titulo": "Brigadeiros Gourmets — Especiais", "precoNota": "Escolha até dois sabores no mesmo cento — R$ 230,00 o cento", "intro": "Sabores com um passo a mais de técnica e acabamento.", "nota": "Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.", "itens": [{"nome": "Churros", "desc": "Massa com leve adição de canela, finalizada no açúcar cristal e canela. Topper de doce de leite.", "preco": 2.4, "img": "assets/doces/churros.webp"}, {"nome": "Coco queimado", "desc": "Massa de coco levemente dourado, finalizada no coco queimado com topper de doce de leite.", "preco": 2.5, "img": "assets/doces/coco-queimado.webp"}, {"nome": "Brigadeiro Gourmet", "desc": "Massa feita com cacau 100%, finalizada com granulé de chocolate nobre ao leite.", "preco": 2.5, "img": "assets/doces/brigadeiro-ao-leite.webp"}, {"nome": "Ninho com Nutella", "desc": "Massa de leite Ninho finalizada no leite em pó, com topper de roseta de Nutella.", "preco": 2.5, "img": "assets/doces/ninho-com-nutella.webp"}, {"nome": "Tipo Ferrero", "desc": "Massa de cacau 100%, finalizada no xerém de amendoim com topper de Nutella.", "preco": 2.5, "img": "assets/doces/ferrero.webp"}], "passo": 25, "precoCento": 230.0, "maxSabores": 2, "regraTexto": "Acima de 3 sabores no mesmo cento, será cobrado o valor unitário de cada brigadeiro."}, {"id": "premium", "titulo": "Brigadeiros Gourmets — Linha Premium", "precoNota": "a partir de R$ 2,80 a unidade", "intro": "Reduções de fruta, recheios e finalizações que elevam o brigadeiro a outro nível.", "nota": "Quantidade mínima de 25 unidades por sabor · Caixas de 25, 50 e 100 unidades · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração · Caramelo e Flor de Sal e Creme Brullé perdem a crocância com facilidade: recomenda-se consumo no dia da entrega.", "itens": [{"nome": "Limão", "desc": "Massa saborizada com raspas de limão Taiti e redução da fruta, finalizada com roseta de creme de ninho e raspas de limão.", "preco": 2.8, "img": "assets/doces/bombom-de-limao.webp"}, {"nome": "Maracujá", "desc": "Massa saborizada com redução de maracujá, finalizada com roseta de creme de ninho e geleia artesanal de maracujá.", "preco": 2.8, "img": "assets/doces/brigadeiro-de-maracuja.webp"}, {"nome": "Prestígio", "desc": "Massa de cacau 100% recheada com brigadeiro de coco cremoso, finalizada com coco em flocos.", "preco": 2.8, "img": "assets/doces/prestigio.webp"}, {"nome": "Creme Brullé", "desc": "Massa de baunilha finalizada com açúcar caramelizado.", "preco": 3.0, "img": "assets/doces/creme-brulle.webp"}, {"nome": "Caramelo e flor de sal", "desc": "Massa de caramelo com leve toque salgado, finalizada com sucrilhos caramelizado crocante.", "preco": 3.0, "img": "assets/doces/caramelo-e-flor-de-sal.webp"}, {"nome": "Parmesão e goiabada", "desc": "Massa de parmesão fresco recheada com goiabada, finalizada com flor modelada de goiabada.", "preco": 3.0, "img": "assets/doces/gosto-mineiro.webp"}, {"nome": "Olho de sogra", "desc": "Massa cremosa de coco, finalizada com ameixa desidratada e flocos de coco levemente adoçados.", "preco": 2.8, "img": "assets/doces/olho-de-sogra.webp"}], "passo": 25}, {"id": "finos", "titulo": "Doces Finos", "precoNota": "a partir de R$ 4,50 a unidade", "intro": "Bombons, cachepôs e trufas em chocolate nobre, com recheios artesanais e acabamento de autor.", "nota": "Produção artesanal em chocolate nobre · Consulte quantidades mínimas e condições para personalização.", "itens": [{"nome": "Jarrinha de Cereja", "desc": "Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.", "preco": 4.7, "img": "assets/doces/cachepo-de-cereja.webp"}, {"nome": "Cachepô de Morango", "desc": "Casquinha de chocolate blend, recheada com geleia de morango artesanal e creme de ninho, finalizada com morangos frescos.", "preco": 4.5, "img": "assets/doces/cachepo-morango.webp"}, {"nome": "Bombom Floresta Negra", "desc": "Brigadeiro meio amargo recheado com cereja, banhado no chocolate blend e finalizado com açúcar vermelho.", "preco": 4.5, "img": "assets/doces/bombom-floresta-negra.webp"}, {"nome": "Morango Provençal", "desc": "Casquinha de chocolate blend recheada com creme de chocolate meio amargo, finalizada com morangos frescos e bordinha de xerém de castanha de caju.", "preco": 5.0, "img": "assets/doces/morango-provencal.webp"}, {"nome": "Caramelo Imperial", "desc": "Casquinha de chocolate branco com caramelo salgado e pralinê de castanha de caju, finalizada com brigadeiro de doce de leite e amêndoas tostadas.", "preco": 5.5, "img": "assets/doces/caramelo-imperial.webp"}, {"nome": "Pepita de Ouro", "desc": "Chocolate blend com xerém de castanha de caju e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/pepita-de-ouro.webp"}, {"nome": "Trufa de Limão Siciliano", "desc": "Trufa de limão siciliano banhada no chocolate branco.", "preco": 5.0, "img": "assets/doces/trufa-siciliana.webp"}, {"nome": "Rosa de Ninho e Frutas Vermelhas", "desc": "Rosa de chocolate branco recheada com creme de ninho e geleia artesanal de frutas vermelhas.", "preco": 4.5, "img": "assets/doces/rosa-de-ninho.webp"}, {"nome": "Camafeu de Nozes", "desc": "Bombom de chocolate branco recheado com brigadeiro cremoso de nozes, finalizado com nozes inteiras douradas.", "preco": 4.5, "img": "assets/doces/bombom-de-nozes.webp"}, {"nome": "Maracujá Rendado", "desc": "Chocolate blend recheado com gel cítrico e ganache de maracujá, finalizado com rendinha de papel arroz.", "preco": 5.5, "img": "assets/doces/maracuja-rendado.webp"}, {"nome": "Nutella Crunch", "desc": "Chocolate blend recheado com Nutella pura e massa folhada artesanal.", "preco": 5.0, "img": "assets/doces/nutella-crunch.webp"}, {"nome": "Coração Dourado", "desc": "Bombom maciço de chocolate blend e nuts: castanha de caju, castanha do Pará, nozes, pistache e amêndoas.", "preco": 6.0, "img": "assets/doces/coracao-dourado.webp"}, {"nome": "Cachepô de Creamcheese", "desc": "Chocolate branco recheado com creme de creamcheese, finalizado com rosa de goiabada.", "preco": 5.0, "img": "assets/doces/cachepo-romeu-e-julieta.webp"}, {"nome": "Bombom Personalizado", "desc": "Casquinha de chocolate branco recheada com ganache de chocolate branco. Personalize com monogramas, logomarcas e imagens.", "preco": 5.5, "img": "assets/doces/bombom-personalizado.webp"}, {"nome": "Bombom Artístico", "desc": "Bombom personalizado com manteiga de cacau, recheado com sabores em catálogo. Personalize com a paleta de cores do seu evento.", "preco": 6.0, "img": "assets/doces/bombom-artistico.webp"}], "passo": 1}, {"id": "degustacao", "titulo": "Caixas Degustação", "precoNota": "valor a definir", "passo": 1, "intro": "Prove os doces antes de fechar o cardápio do seu evento.", "nota": "", "unidade": "caixa", "layout": "caixa", "itens": [{"nome": "Caixa Degustação — 10 doces", "selo": "Seleção definida", "desc": "Uma amostra enxuta dos nossos clássicos e doces finos.", "preco": 0.0, "img": "assets/doces/brigadeiro-ao-leite.webp", "pendente": true, "doces": [{"img": "assets/doces/brigadeiro-ao-leite.webp", "nome": "Brigadeiro ao leite"}, {"img": "assets/doces/caramelo-e-flor-de-sal.webp", "nome": "Caramelo e flor de sal"}, {"img": "assets/doces/creme-brulle.webp", "nome": "Creme brullé"}, {"img": "assets/doces/morango-provencal.webp", "nome": "Morango provençal"}, {"img": "assets/doces/cachepo-de-cereja.webp", "nome": "Cachepô de cereja"}, {"img": "assets/doces/cachepo-romeu-e-julieta.webp", "nome": "Romeu e Julieta"}, {"img": "assets/doces/trufa-siciliana.webp", "nome": "Trufa de limão siciliano"}, {"img": "assets/doces/pepita-de-ouro.webp", "nome": "Pepita de ouro"}, {"img": "assets/doces/maracuja-rendado.webp", "nome": "Rendado de maracujá"}, {"img": "assets/doces/bombom-personalizado.webp", "nome": "Bombom com logomarca"}]}, {"nome": "Caixa Degustação — 20 doces", "selo": "Experiência completa", "desc": "A seleção ampliada, com toda a variedade da casa.", "preco": 0.0, "img": "assets/doces/brigadeiro-ao-leite.webp", "pendente": true, "doces": [{"img": "assets/doces/brigadeiro-ao-leite.webp", "nome": "Brigadeiro ao leite"}, {"img": "assets/doces/coco-queimado.webp", "nome": "Coco queimado"}, {"img": "assets/doces/brigadeiro-de-maracuja.webp", "nome": "Maracujá"}, {"img": "assets/doces/caramelo-e-flor-de-sal.webp", "nome": "Caramelo e flor de sal"}, {"img": "assets/doces/creme-brulle.webp", "nome": "Creme brullé"}, {"img": "assets/doces/gosto-mineiro.webp", "nome": "Parmesão e goiabada"}, {"img": "assets/doces/dois-amores.webp", "nome": "Dois amores florais"}, {"img": "assets/doces/morango-provencal.webp", "nome": "Morango provençal"}, {"img": "assets/doces/caramelo-imperial.webp", "nome": "Caramelo imperial"}, {"img": "assets/doces/cachepo-de-cereja.webp", "nome": "Cachepô de cereja"}, {"img": "assets/doces/coracao-dourado.webp", "nome": "Coração dourado"}, {"img": "assets/doces/bombom-floresta-negra.webp", "nome": "Bombom floresta negra"}, {"img": "assets/doces/pepita-de-ouro.webp", "nome": "Pepita de ouro"}, {"img": "assets/doces/trufa-siciliana.webp", "nome": "Trufa de limão siciliano"}, {"img": "assets/doces/bombom-de-nozes.webp", "nome": "Camafeu de nozes"}, {"img": "assets/doces/rosa-de-ninho.webp", "nome": "Rosa de ninho e frutas vermelhas"}, {"img": "assets/doces/maracuja-rendado.webp", "nome": "Rendado de maracujá"}, {"img": "assets/doces/cachepo-romeu-e-julieta.webp", "nome": "Cachepô de Creamcheese"}, {"img": "assets/doces/bombom-personalizado.webp", "nome": "Personalizado"}, {"img": "assets/doces/bombom-artistico.webp", "nome": "Bombom artístico"}]}]}, {"id": "personalizados", "titulo": "Brigadeiros Personalizados", "precoNota": "mínimo de 50 unidades", "passo": 50, "intro": "Feitos à base de leite Ninho, na paleta de cores e nos elementos visuais do seu evento.", "nota": "", "unidade": "unidade", "itens": [{"nome": "Carimbados", "preco": 2.5, "img": "assets/personalizados/carimbados.webp", "desc": "Carimbos com nomes, logomarcas, iniciais e idade. Opção de pós metalizados.", "tabela": [{"q": 100, "v": 250.0}, {"q": 50, "v": 130.0}]}, {"nome": "Modelados", "preco": 3.5, "img": "assets/personalizados/modelados.webp", "desc": "Moldes e ejetores no tema escolhido para o seu evento.", "tabela": [{"q": 100, "v": 350.0}, {"q": 50, "v": 180.0}]}, {"nome": "Com apliques", "preco": 3.5, "img": "assets/personalizados/apliques.webp", "desc": "Apliques em pasta americana ou pasta de leite Ninho, no tema da festa. O valor é o brigadeiro mais o aplique, então varia conforme o modelo.", "tabela": [{"q": 100, "v": 350.0}, {"q": 50, "v": 180.0}], "apartir": true}, {"nome": "Detalhes em pintura", "preco": 4.0, "img": "assets/personalizados/pintura.webp", "desc": "Pinturas feitas à mão e olhos comestíveis em personagens e elementos. Valor para pinturas complexas.", "tabela": [{"q": 100, "v": 400.0}, {"q": 50, "v": 200.0}]}]}];
 const ZAP = '5534984088480';
 const carrinho = {};   // chave "catIdx-itemIdx" -> quantidade
 
@@ -447,6 +484,60 @@ function montarCatalogo(){
     if (c.regraTexto) regra.textContent = c.regraTexto; else regra.remove();
     bloco.querySelector('p').textContent = c.intro;
     const grade = bloco.querySelector('.grade');
+
+    // layout especial das caixas degustação, no desenho do site
+    if (c.layout === 'caixa'){
+      grade.className = 'caixas';
+      c.itens.forEach((it, ii) => {
+        const chave = ci + '-' + ii;
+        const cx = document.createElement('div');
+        cx.className = 'caixa';
+        cx.innerHTML =
+          '<div class="caixa-txt">' +
+            '<div class="selo"></div><h4></h4><p></p>' +
+            '<div class="caixa-val"></div>' +
+            '<div class="qtd">' +
+              '<button type="button" data-d="-1" aria-label="Diminuir">−</button>' +
+              '<input type="number" min="0" step="1" value="0" inputmode="numeric">' +
+              '<button type="button" data-d="1" aria-label="Aumentar">+</button>' +
+            '</div><div class="sub"></div>' +
+          '</div><div class="caixa-doces"></div>';
+        cx.querySelector('.selo').textContent = it.selo;
+        cx.querySelector('h4').textContent = it.nome;
+        cx.querySelector('p').textContent = it.desc;
+        cx.querySelector('.caixa-val').innerHTML = brl(it.preco) + ' a caixa<em>valor a definir</em>';
+
+        const gd = cx.querySelector('.caixa-doces');
+        it.doces.forEach(d => {
+          const cel = document.createElement('figure');
+          cel.innerHTML = '<img loading="lazy" decoding="async"><figcaption></figcaption>';
+          cel.querySelector('img').src = d.img;
+          cel.querySelector('img').alt = d.nome;
+          cel.querySelector('figcaption').textContent = d.nome;
+          gd.appendChild(cel);
+        });
+
+        const input = cx.querySelector('input');
+        const menos = cx.querySelector('[data-d="-1"]');
+        const sub   = cx.querySelector('.sub');
+        function aplicar(q){
+          q = Math.max(0, Math.round(q));
+          if (q > 0) carrinho[chave] = q; else delete carrinho[chave];
+          input.value = q; menos.disabled = q === 0;
+          cx.classList.toggle('ativo', q > 0);
+          sub.textContent = q > 0 ? q + (q > 1 ? ' caixas' : ' caixa') : '';
+          atualizarTotal();
+        }
+        cx.querySelectorAll('.qtd button').forEach(b =>
+          b.addEventListener('click', () => aplicar((+input.value || 0) + (+b.dataset.d))));
+        input.addEventListener('change', () => aplicar(+input.value || 0));
+        aplicar(0);
+        cx._aplicar = aplicar; cx._passo = 1; cx._catId = c.id;
+        grade.appendChild(cx);
+      });
+      raiz.appendChild(bloco);
+      return;
+    }
 
     c.itens.forEach((it, ii) => {
       const chave = ci + '-' + ii;
