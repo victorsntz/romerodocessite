@@ -42,7 +42,7 @@
   header{background:var(--vinho);color:var(--creme);padding:56px 0 64px;text-align:center}
   header img{width:74px;margin-bottom:14px}
   header h1{font-size:60px;color:var(--creme);margin:8px 0 16px;line-height:1.05}
-  header p{color:#d9d2be;font-size:15px;max-width:560px;margin:0 auto}
+  header p{color:#d9d2be;font-size:15px;max-width:660px;margin:0 auto;line-height:1.9}
 
   /* ---------- blocos ---------- */
   section{padding:72px 0}
@@ -113,7 +113,9 @@
   .cat-topo .regra{max-width:620px;margin:8px auto 0;font-size:12.5px;font-weight:300;
                    font-style:italic;line-height:1.6;color:var(--ouro)}
   .cat-topo p{color:var(--texto);font-size:14.5px;max-width:620px;margin:10px auto 0}
-  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:24px}
+  .grade{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+  .grade > .doce{flex:0 0 240px}
+  @media (max-width:600px){ .grade > .doce{flex:0 0 100%} }
   .doce{background:var(--creme);border:1px solid var(--borda);border-radius:4px;
         padding:20px 18px;display:flex;flex-direction:column;gap:10px;transition:.25s;
         text-align:center;align-items:center}
@@ -274,7 +276,7 @@
     <img src="favicon-192.png" alt="Romero Doces">
     <div class="script">feito pra celebrar</div>
     <h1>Cardápio 2026</h1>
-    <p>Monte sua seleção, veja o valor na hora e leve o orçamento pronto para a conversa. Os valores abaixo são os vigentes para 2026.</p>
+    <p>Monte sua seleção, veja o valor na hora e leve o orçamento pronto para a conversa.<br>Os valores abaixo são os vigentes para 2026.</p>
   </div>
 </header>
 
