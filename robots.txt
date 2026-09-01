@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victorsntz.github.io/romerodocessite/sitemap.xml
