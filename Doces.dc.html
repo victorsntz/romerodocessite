@@ -123,7 +123,7 @@
           <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="5">
             <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 26px; display: flex; flex-direction: column; gap: 14px; text-align: center; width: 264px;">
               <sc-if value="{{ item.img }}" hint-placeholder-val="{{ true }}">
-                <img loading="lazy" decoding="async" src="{{ item.img }}" alt="{{ item.name }}" style="width: 176px; height: 176px; object-fit: contain; align-self: center; margin-top: -62px; filter: {{ item.filter }};">
+                <img loading="lazy" decoding="async" src="{{ item.img }}" alt="{{ item.name }}" style="width: 176px; height: 176px; object-fit: contain; align-self: center; margin-top: -62px; filter: {{ item.filter }}; transform: scale({{ item.zoom }});">
               </sc-if>
               <div style="display: flex; flex-direction: column; gap: 6px;">
                 <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600; line-height: 1.2;">{{ item.name }}</div>
@@ -182,29 +182,42 @@
         <p style="font-size: 15px; font-weight: 300; line-height: 1.7; color: #52362e; margin: 0;">Feitos à base de leite Ninho e produzidos de acordo com a paleta de cores, elementos visuais e design individuais de cada evento. Quantidade mínima de 50 unidades, podendo mesclar entre os estilos escolhidos.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px;">
-        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Carimbados</div>
-          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Elementos do tema, carimbos personalizados com nomes, logomarcas exclusivas, iniciais e idade. Opção de pós metalizados.</div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #bf5351;">
+          <img src="assets/personalizados/carimbados.webp" alt="Brigadeiros carimbados com logomarca dourada" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-bottom: 1px solid #d8d2c0;">
+          <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Carimbados</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Elementos do tema, carimbos personalizados com nomes, logomarcas exclusivas, iniciais e idade. Opção de pós metalizados.</div>
+          </div>
         </div>
-        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Modelados</div>
-          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Utilização de moldes ou ejetores do tema escolhido para o seu evento.</div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #bf5351;">
+          <img src="assets/personalizados/modelados.webp" alt="Brigadeiros modelados com ejetores" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-bottom: 1px solid #d8d2c0;">
+          <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Modelados</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Utilização de moldes ou ejetores do tema escolhido para o seu evento.</div>
+          </div>
         </div>
-        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Com apliques</div>
-          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Apliques em pasta americana ou pasta de leite Ninho, com modelos de acordo com o tema escolhido.</div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #bf5351;">
+          <img src="assets/personalizados/apliques.webp" alt="Brigadeiros com apliques de pasta americana" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-bottom: 1px solid #d8d2c0;">
+          <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Com apliques</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Apliques em pasta americana ou pasta de leite Ninho, com modelos de acordo com o tema escolhido.</div>
+          </div>
         </div>
-        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Pintura &amp; olhos comestíveis</div>
-          <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Brigadeiros modelados com pinturas feitas manualmente e aplicação de olhos comestíveis em personagens e elementos.</div>
+        <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #bf5351;">
+          <img src="assets/personalizados/pintura.webp" alt="Brigadeiros pintados à mão com olhos comestíveis" loading="lazy" decoding="async" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-bottom: 1px solid #d8d2c0;">
+          <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Pintura &amp; olhos comestíveis</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Brigadeiros modelados com pinturas feitas manualmente e aplicação de olhos comestíveis em personagens e elementos.</div>
+          </div>
         </div>
       </div>
-      <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
-        <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+        <img src="assets/corporativos/corp3-lembrancinhas.webp" alt="Lembrancinhas corporativas em caixas personalizadas" loading="lazy" decoding="async" style="width: 220px; height: 190px; object-fit: cover; display: block; flex-shrink: 0;">
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 24px 0; flex: 1 1 260px;">
           <div style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600;">Corporativos e lembrancinhas</div>
           <div style="font-size: 14px; font-weight: 300; line-height: 1.6; color: #52362e;">Caixas personalizadas para empresas e lembrancinhas para eventos em geral.</div>
         </div>
-        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; padding: 13px 28px; border-radius: 3px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;" style-hover="background: #bf5351;">Pedir orçamento</a>
+        <a href="https://wa.me/5534984088480" target="_blank" rel="noopener" style="text-decoration: none; background: #411513; color: #f4f0e6; padding: 13px 28px; border-radius: 3px; font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; margin-right: 32px;" style-hover="background: #bf5351;">Pedir orçamento</a>
       </div>
     </div>
   </section>
@@ -245,7 +258,7 @@ class Component extends DCLogic {
         note: 'Quantidade mínima de 25 unidades por sabor · Até dois sabores no mesmo cento · Caixas de 25, 50 e 100 unidades · Aproximadamente 16g por unidade · Validade média de 3 dias em temperatura ambiente e 5 dias sob refrigeração.',
         items: [
           { name: 'Ninho', desc: 'Massa de leite Ninho confeitada no leite em pó.', price: 'R$ 2,30 un.', img: 'assets/doces/brigadeiro-de-ninho.webp' },
-          { name: 'Beijinho', desc: 'Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.', price: 'R$ 2,30 un.', img: '' },
+          { name: 'Beijinho', desc: 'Massa feita com coco em flocos, finalizada com coco em flocos levemente adoçados.', price: 'R$ 2,30 un.', img: 'assets/doces/beijinho.webp' },
           { name: 'Moranguinho', desc: 'Massa sabor morango, finalizada no açúcar colorido na cor rosa.', price: 'R$ 2,30 un.', img: 'assets/doces/brigadeiro-de-morango.webp' },
           { name: 'Dois amores', desc: 'Metade brigadeiro feito com cacau 100%, metade brigadeiro de ninho.', price: 'R$ 2,40 un.', img: 'assets/doces/dois-amores.webp' },
           { name: 'Paçoca', desc: 'Massa feita com paçoquinha, finalizada no amendoim triturado e torrado, com topper de meio amendoim.', price: 'R$ 2,30 un.', img: 'assets/doces/pacoca.webp' }
@@ -282,7 +295,7 @@ class Component extends DCLogic {
         intro: 'Bombons, cachepôs e trufas em chocolate nobre, com recheios artesanais e acabamento de autor.',
         note: 'Produção artesanal em chocolate nobre · Consulte quantidades mínimas e condições para personalização.',
         items: [
-          { name: 'Jarrinha de Cereja', desc: 'Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.', price: 'R$ 4,70 un.', img: 'assets/doces/cachepo-de-cereja.webp' },
+          { name: 'Jarrinha de Cereja', desc: 'Casquinha de chocolate nobre blend, recheada com creme de chocolate meio amargo saborizado de cereja, finalizada com cereja.', price: 'R$ 4,70 un.', img: 'assets/doces/cachepo-de-cereja.webp', zoom: 1.25 },
           { name: 'Cachepô de Morango', desc: 'Casquinha de chocolate blend, recheada com geleia de morango artesanal e creme de ninho, finalizada com morangos frescos.', price: 'R$ 4,50 un.', img: 'assets/doces/cachepo-morango.webp' },
           { name: 'Bombom Floresta Negra', desc: 'Brigadeiro meio amargo recheado com cereja, banhado no chocolate blend e finalizado com açúcar vermelho.', price: 'R$ 4,50 un.', img: 'assets/doces/bombom-floresta-negra.webp' },
           { name: 'Morango Provençal', desc: 'Casquinha de chocolate blend recheada com creme de chocolate meio amargo, finalizada com morangos frescos e bordinha de xerém de castanha de caju.', price: 'R$ 5,00 un.', img: 'assets/doces/morango-provencal.webp' },
@@ -304,6 +317,7 @@ class Component extends DCLogic {
     cats.forEach(c => c.items.forEach(it => {
       it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
     }));
+    cats.forEach(c => c.items.forEach(it => { it.zoom = it.zoom || 1; }));
     return { mostrarPrecos, cats };
   }
 }
