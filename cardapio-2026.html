@@ -226,6 +226,11 @@
   .chips button:hover{background:var(--rosa);border-color:var(--rosa)}
   .qtd{display:flex;align-items:center;gap:6px;margin-top:2px;width:100%}
   .qtd .zerar{font-size:13px}
+  /* personalizados: fotografias (mao segurando o doce), nao recortes —
+     precisam de area pra pessoa ver a tecnica. Mesmo desenho dos cards
+     de personalizados do site: foto 4:3 cobrindo a largura do card. */
+  .doce.foto-real figure{width:100%}
+  .doce.foto-real figure img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px}
 
   @media (max-width:600px){
     /* meta: 6 a 8 doces na tela. A descricao sai daqui (segue no desktop e
@@ -233,6 +238,8 @@
     .grade{gap:10px}
     .grade > .doce{flex:0 0 calc(50% - 5px);padding:10px 8px 9px;gap:4px}
     .doce figure img{width:60px;height:60px}
+    .grade > .doce.foto-real{flex:0 0 100%}
+    .doce.foto-real figure img{width:100%;height:auto}
     .doce .nome{font-size:14px;line-height:1.15}
     .doce .desc{display:none}
     .doce .val{font-size:11px;letter-spacing:.04em}
@@ -675,7 +682,7 @@ function montarCatalogo(){
     c.itens.forEach((it, ii) => {
       const chave = ci + '-' + ii;
       const card = document.createElement('div');
-      card.className = 'doce';
+      card.className = 'doce' + (c.id === 'personalizados' ? ' foto-real' : '');
       card.innerHTML =
         '<figure><img loading="lazy" decoding="async" alt=""></figure>' +
         '<div class="nome"></div><div class="desc"></div><div class="val"></div>' +
