@@ -69,13 +69,6 @@ document.addEventListener('dragstart', function (e) {
     user-select: none;
     pointer-events: none;
   }
-  @keyframes deslizaFlorais {
-    0%,    38% { transform: translateX(0); }
-    50%,   88% { transform: translateX(-33.3333%); }
-    100%       { transform: translateX(-66.6666%); }
-  }
-  .trilho-florais { animation: deslizaFlorais 8s cubic-bezier(0.5, 0, 0.2, 1) infinite; }
-  @media (prefers-reduced-motion: reduce) { .trilho-florais { animation: none; } }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #411513; }
@@ -243,13 +236,7 @@ document.addEventListener('dragstart', function (e) {
           <li>Vendidas separadamente: você escolhe o doce e as flores desejadas</li>
         </ul>
       </div>
-      <div style="width: 100%; overflow: hidden; border-radius: 4px;">
-        <div class="trilho-florais" style="display: flex; width: 300%;">
-          <sc-for list="{{ florais }}" as="fl" hint-placeholder-count="4">
-            <img decoding="async" src="{{ fl.src }}" alt="Doce com flor" style="width: 100%; height: auto; flex: 0 0 33.3333%; min-width: 0; display: block;">
-          </sc-for>
-        </div>
-      </div>
+      <img decoding="async" src="assets/doces/floral.webp" alt="Doce floral" style="width: 100%;">
     </div>
   </section>
 
@@ -396,13 +383,12 @@ class Component extends DCLogic {
       it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
     }));
     cats.forEach(c => c.items.forEach(it => { it.zoom = it.zoom || 1; }));
-    const FLORAIS = ['assets/doces/floral.webp', 'assets/doces/rosa-de-ninho.webp'];
-    const florais = [...FLORAIS, FLORAIS[0]].map((src, i) => ({ src, i }));
+    const FLORAIS = ['assets/doces/floral.webp'];
     cats.forEach(c => {
       c.notas = (c.note || '').split(' · ').map(s => s.trim()).filter(Boolean)
         .map(s => ({ t: /[.!?]$/.test(s) ? s : s + '.' }));
     });
-    return { mostrarPrecos, cats, florais };
+    return { mostrarPrecos, cats };
   }
 }
 </script>
