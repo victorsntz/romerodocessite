@@ -382,10 +382,13 @@ class Component extends DCLogic {
     const POOL_C = ['assets/fotos/bia50.webp', 'assets/fotos/bia20.webp', 'assets/fotos/bia120.webp', 'assets/fotos/retrato2.webp', 'assets/fotos/doce3.webp'];
     return {
       retratos: ['assets/fotos/retrato2.webp', 'assets/fotos/retrato3.webp'].map((src, i, a) => ({ src, op: i === (Math.floor(h / 4) % a.length) ? 1 : 0 })),
-      persCarimbados: fot(['assets/personalizados/carimbados.webp'], 0),
-      persModelados: fot(['assets/personalizados/modelados.webp'], 1),
-      persApliques: fot(['assets/personalizados/apliques.webp'], 2),
-      persPintura: fot(['assets/personalizados/pintura.webp'], 3),
+      persCarimbados: fot(['assets/personalizados/carimbados-1.webp', 'assets/personalizados/carimbados-2.webp'], 0),
+      persModelados: fot(['assets/personalizados/modelados-1.webp', 'assets/personalizados/modelados-2.webp',
+                          'assets/personalizados/modelados.webp'], 1),
+      persApliques: fot(['assets/personalizados/apliques-1.webp', 'assets/personalizados/apliques-2.webp',
+                         'assets/personalizados/apliques.webp'], 2),
+      persPintura: fot(['assets/personalizados/pintura-1.webp', 'assets/personalizados/pintura-2.webp',
+                        'assets/personalizados/pintura.webp'], 3),
       heroBig: rot(POOL_A, 0),
       heroMid: rot(POOL_B, 1),
       heroSmall: rot(POOL_C, 2),

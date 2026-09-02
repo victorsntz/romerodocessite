@@ -236,7 +236,13 @@ document.addEventListener('dragstart', function (e) {
           <li>Vendidas separadamente: você escolhe o doce e as flores desejadas</li>
         </ul>
       </div>
-      <img decoding="async" src="assets/doces/floral.webp" alt="Doce floral" style="width: 100%;">
+      <div style="width: 100%; overflow: hidden; border-radius: 4px;">
+        <div class="trilho-florais" style="display: flex; width: 400%;">
+          <sc-for list="{{ florais }}" as="fl" hint-placeholder-count="4">
+            <img decoding="async" src="{{ fl.src }}" alt="Doce floral" style="width: 100%; height: auto; flex: 0 0 25%; min-width: 0; display: block;">
+          </sc-for>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -383,12 +389,13 @@ class Component extends DCLogic {
       it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
     }));
     cats.forEach(c => c.items.forEach(it => { it.zoom = it.zoom || 1; }));
-    const FLORAIS = ['assets/doces/floral.webp'];
+    const FLORAIS = ['assets/doces/floral.webp', 'assets/doces/floral-1.webp', 'assets/doces/floral-2.webp'];
+    const florais = [...FLORAIS, FLORAIS[0]].map((src, i) => ({ src, i }));
     cats.forEach(c => {
       c.notas = (c.note || '').split(' · ').map(s => s.trim()).filter(Boolean)
         .map(s => ({ t: /[.!?]$/.test(s) ? s : s + '.' }));
     });
-    return { mostrarPrecos, cats };
+    return { mostrarPrecos, cats, florais };
   }
 }
 </script>
