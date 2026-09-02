@@ -7,6 +7,8 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#411513">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preload" as="image" href="assets/fotos/bia40.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/fotos/doce1.webp" fetchpriority="high">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
@@ -1081,22 +1083,34 @@ $('#btLimpar').addEventListener('click', () => {
     pequena: ['assets/fotos/doce1.webp','assets/fotos/doce4.webp','assets/fotos/doce2.webp',
               'assets/fotos/doce5.webp','assets/fotos/doce3.webp','assets/fotos/doce6.webp']
   };
+  // Só a primeira foto de cada moldura baixa no carregamento. As outras
+  // ficam em data-src e entram uma de cada vez, sempre um passo antes de
+  // aparecer — assim a página abre rápido e o crossfade não pisca.
+  const VAZIO = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
   const molduras = [...document.querySelectorAll('.moldura[data-pool]')];
   molduras.forEach(m => {
     const veu = m.querySelector('.veu');
     POOLS[m.dataset.pool].forEach((src, i) => {
       const img = document.createElement('img');
-      img.src = src; img.alt = ''; img.decoding = 'async';
-      if (i === 0){ img.classList.add('on'); img.fetchPriority = 'high'; }
+      img.alt = ''; img.decoding = 'async';
+      if (i === 0){ img.src = src; img.classList.add('on'); img.fetchPriority = 'high'; }
+      else { img.src = VAZIO; img.dataset.src = src; }
       m.insertBefore(img, veu);        // as fotos ficam sob o véu e a textura
     });
   });
+  const acorda = img => { if (img.dataset.src){ img.src = img.dataset.src; delete img.dataset.src; } };
   let passo = 0;
+  // aquece a segunda foto de cada moldura depois que a página terminou de carregar
+  window.addEventListener('load', () => setTimeout(() => molduras.forEach((m, k) => {
+    const imgs = m.querySelectorAll('img'); acorda(imgs[(1 + k * 2) % imgs.length]);
+  }), 800));
   setInterval(() => {
     passo++;
     molduras.forEach((m, k) => {
       const imgs = m.querySelectorAll('img');
-      const idx = (passo + k * 2) % imgs.length;   // as duas molduras não trocam juntas
+      const idx  = (passo + k * 2) % imgs.length;   // as duas molduras não trocam juntas
+      acorda(imgs[idx]);
+      acorda(imgs[(idx + 1) % imgs.length]);        // e a próxima já vem vindo
       imgs.forEach((im, i) => im.classList.toggle('on', i === idx));
     });
   }, 3200);
