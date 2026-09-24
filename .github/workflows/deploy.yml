@@ -1,0 +1,65 @@
+name: Publicar na Hostinger
+
+# Todo push na main publica na Hostinger (Git deploy do hPanel) e confere se o site atualizou.
+# Rodar na mão: gh workflow run deploy.yml -R victorsntz/romerodocessite
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publicar-hostinger
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    name: Avisar a Hostinger
+    steps:
+      - name: Disparar o deploy
+        env:
+          WEBHOOK: ${{ secrets.HOSTINGER_WEBHOOK }}
+        run: |
+          if [ -z "$WEBHOOK" ]; then
+            echo "Sem segredo HOSTINGER_WEBHOOK: a Hostinger conectada pelo app do GitHub já puxa o push sozinha."
+            echo "(Só precisa do segredo se o Git do hPanel for do tipo antigo, por URL + webhook. Veja DEPLOY.md.)"
+            exit 0
+          fi
+          codigo=$(curl -sS -o resposta.txt -w '%{http_code}' -X POST "$WEBHOOK" || echo 000)
+          echo "Hostinger respondeu HTTP $codigo"
+          cat resposta.txt 2>/dev/null || true; echo
+          case "$codigo" in
+            2*) ;;
+            *) echo "::error::A Hostinger não aceitou o disparo (HTTP $codigo)."; exit 1 ;;
+          esac
+
+      - name: Conferir se o site atualizou
+        # Só quando houver a variável SITE_URL no repositório (ex.: https://romerodoces.com.br)
+        # e o push tiver mexido em arquivo que o site serve.
+        if: vars.SITE_URL != '' && github.event_name == 'push'
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          ANTES: ${{ github.event.before }}
+          DEPOIS: ${{ github.sha }}
+        run: |
+          inicio=$(date -u +%s)
+          arquivos=$(curl -sS -H "Authorization: Bearer ${{ github.token }}" \
+            "https://api.github.com/repos/${{ github.repository }}/compare/$ANTES...$DEPOIS" \
+            | python3 -c 'import sys,json; [print(f["filename"]) for f in json.load(sys.stdin).get("files",[]) if f["status"]!="removed"]' \
+            | grep -vE '^(\.github/|\.gitignore|\.nojekyll|DEPLOY\.md|README\.md)' | head -3)
+          if [ -z "$arquivos" ]; then echo "Nada que o site serve mudou neste push; sem o que conferir."; exit 0; fi
+          echo "Vou conferir:"; echo "$arquivos"
+          for i in $(seq 1 18); do
+            sleep 10
+            ok=1
+            for a in $arquivos; do
+              lm=$(curl -sSI "$SITE_URL/$a" | tr -d '\r' | awk 'tolower($1)=="last-modified:"{sub(/^[^:]*: */,"");print}')
+              ts=$(date -u -d "$lm" +%s 2>/dev/null || echo 0)
+              [ "$ts" -ge $((inicio - 180)) ] || ok=0
+            done
+            if [ "$ok" = 1 ]; then echo "Site atualizado (Last-Modified: $lm)."; exit 0; fi
+          done
+          echo "::warning::Não consegui confirmar a atualização em 3 min. Confira o histórico de deploys no hPanel (Git)."

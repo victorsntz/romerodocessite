@@ -1,0 +1,65 @@
+# Romero Doces — regras do servidor (Hostinger / LiteSpeed).
+# O GitHub Pages ignora este arquivo; ele só vale no domínio próprio.
+
+AddDefaultCharset UTF-8
+AddType image/webp .webp
+AddType font/woff2 .woff2
+
+# A home é a Home.dc.html servida direto em "/" (sem passar pelo meta refresh do index.html).
+DirectoryIndex Home.dc.html index.html
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Endereço canônico: sempre https e sem www (fora do teste local).
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?([^:]+) [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # URLs limpas como apelido das páginas (reescrita interna, sem redirecionar).
+  # Na virada do domínio: trocar os links internos para estas URLs e
+  # passar as *.dc.html a redirecionar (301) para cá.
+  RewriteRule ^doces/?$        Doces.dc.html       [L]
+  RewriteRule ^degustacao/?$   Degustacao.dc.html  [L]
+  RewriteRule ^sobre/?$        Sobre.dc.html       [L]
+  RewriteRule ^contato/?$      Contato.dc.html     [L]
+  RewriteRule ^cardapio-2026/?$ cardapio-2026.html [L]
+</IfModule>
+
+# O repositório é servido a partir da raiz: nada de desenvolvimento sai pela web.
+RedirectMatch 404 ^/(\.git|\.github)(/.*)?$
+RedirectMatch 404 ^/(README\.md|DEPLOY\.md|\.gitignore|\.nojekyll)$
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Pasta sem index não vira listagem (IndexIgnore em vez de Options -Indexes:
+# Options fora do AllowOverride derruba o site com 500).
+IndexIgnore *
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # HTML sempre revalida (mudança sobe na hora); fotos e scripts ficam em cache
+  # por um tempo, mas não "para sempre": aqui as fotos são trocadas mantendo o nome.
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|jpeg|png|svg|ico|gif)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
