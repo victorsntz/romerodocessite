@@ -69,6 +69,17 @@ document.addEventListener('dragstart', function (e) {
     user-select: none;
     pointer-events: none;
   }
+  /* carrossel dos florais: 5 fotos + a primeira repetida no fim, para o laço não dar salto */
+  @keyframes deslizaFlorais {
+    0.0%, 16.0% { transform: translateX(-0.0000%); }
+    20.0%, 36.0% { transform: translateX(-16.6667%); }
+    40.0%, 56.0% { transform: translateX(-33.3333%); }
+    60.0%, 76.0% { transform: translateX(-50.0000%); }
+    80.0%, 96.0% { transform: translateX(-66.6667%); }
+    100% { transform: translateX(-83.3333%); }
+  }
+  .trilho-florais { animation: deslizaFlorais 17s cubic-bezier(0.5, 0, 0.2, 1) infinite; }
+  @media (prefers-reduced-motion: reduce) { .trilho-florais { animation: none; } }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #f4f0e6; color: #2e1212; font-family: 'Jost', sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #411513; }
@@ -238,9 +249,9 @@ document.addEventListener('dragstart', function (e) {
         </ul>
       </div>
       <div style="width: 100%; overflow: hidden; border-radius: 4px;">
-        <div class="trilho-florais" style="display: flex; width: 400%;">
-          <sc-for list="{{ florais }}" as="fl" hint-placeholder-count="4">
-            <img decoding="async" src="{{ fl.src }}" alt="Doce floral" style="width: 100%; height: auto; flex: 0 0 25%; min-width: 0; display: block;">
+        <div class="trilho-florais" style="display: flex; width: 600%;">
+          <sc-for list="{{ florais }}" as="fl" hint-placeholder-count="6">
+            <img decoding="async" src="{{ fl.src }}" alt="Doce floral" style="width: 100%; height: auto; flex: 0 0 16.6667%; min-width: 0; display: block;">
           </sc-for>
         </div>
       </div>
@@ -299,7 +310,7 @@ document.addEventListener('dragstart', function (e) {
           <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
             <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #bf5351;">Para presente</div>
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Caixa com 10 doces</div>
-            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Doces finos sortidos em caixa premium "Feito pra celebrar". Um presente pronto para aniversários, agradecimentos e datas especiais.</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Dez doces à sua escolha, entre sabores gourmets e finos, em caixa premium "Feito pra celebrar". Um presente pronto para aniversários, agradecimentos e datas especiais.</div>
           </div>
         </div>
         <div style="background: #efeadb; border: 1px solid #d8d2c0; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;" style-hover="border-color: #bf5351;">
@@ -315,7 +326,7 @@ document.addEventListener('dragstart', function (e) {
           <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
             <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #bf5351;">Corporativos</div>
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 600;">Para empresas</div>
-            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Caixas de 10 doces e lembrancinhas com a identidade da sua empresa — para clientes, equipes, eventos e datas comemorativas.</div>
+            <div style="font-size: 13.5px; font-weight: 300; line-height: 1.6; color: #52362e;">Caixas de 10 doces e lembrancinhas com a identidade da sua empresa — para clientes, equipes, eventos e datas comemorativas. Valores sob orçamento: <a href="https://wa.me/5534984088480?text=Ol%C3%A1%2C%20Bia!%20Quero%20um%20or%C3%A7amento%20corporativo." target="_blank" rel="noopener" style="color: #bf5351;">fale com a Bia no WhatsApp</a>.</div>
           </div>
         </div>
       </div>
@@ -421,7 +432,7 @@ class Component extends DCLogic {
       it.filter = it.img && SH.has(it.img.split('/').pop()) ? 'drop-shadow(0 12px 9px rgba(46, 18, 18, 0.25))' : 'none';
     }));
     cats.forEach(c => c.items.forEach(it => { it.zoom = it.zoom || 1; }));
-    const FLORAIS = ['assets/doces/floral.webp', 'assets/doces/floral-1.webp', 'assets/doces/floral-2.webp'];
+    const FLORAIS = ['assets/doces/floral.webp', 'assets/florais/flor-azul-vertical.webp', 'assets/doces/floral-1.webp', 'assets/florais/flor-rosa-vertical.webp', 'assets/doces/floral-2.webp'];
     const florais = [...FLORAIS, FLORAIS[0]].map((src, i) => ({ src, i }));
     cats.forEach(c => {
       c.notas = (c.note || '').split(' · ').map(s => s.trim()).filter(Boolean)
